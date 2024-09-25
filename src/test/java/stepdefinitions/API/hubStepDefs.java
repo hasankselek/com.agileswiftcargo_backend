@@ -123,13 +123,5 @@ public class hubStepDefs extends BaseTest {
         Assert.assertEquals(value, map.get("name"));
     }
 
-    @Given("The api user sends a GET request and saves the returned response.")
-    public void the_api_user_sends_a_get_request_and_saves_the_returned_response() {
-        response = given()
-                .spec(spec)
-                .when()
-                .get(API_Methods.fullPath);
 
-        response.prettyPrint();
-    }
 }
