@@ -1,5 +1,6 @@
 Feature: As an administrator (admin) I want to be able to access Hub List via API connection.
 
+  @GET
   Scenario Outline: admin Send a GET request to the api/hub/list endpoint with valid authorization, verify that the
   response status code is 200 and the message in the response body is 'Success'. Additionally, validate the
   details (name, phone, address, current_balance, status, created_at, updated_at) of the entry with id(x) in
@@ -7,7 +8,7 @@ Feature: As an administrator (admin) I want to be able to access Hub List via AP
 
     * The api user sets "api/hub/list" path parameters.
     # Api kullanicisi "api/hub/list" path parametrelerini olusturur
-    * The api user sends a GET request and saves the returned response.
+    * The api user sends a "GET" request and saves the returned response.
     # Api kullanicisi GET request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
     # Api kullanicisi status codeun 200 oldugunu dogrular

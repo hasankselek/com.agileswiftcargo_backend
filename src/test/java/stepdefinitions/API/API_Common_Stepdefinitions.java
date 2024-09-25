@@ -2,11 +2,7 @@ package stepdefinitions.API;
 
 import base.BaseTest;
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
-import pojos.Pojo;
 import utilities.API_Utilities.API_Methods;
-
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
