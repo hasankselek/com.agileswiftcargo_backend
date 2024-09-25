@@ -16,10 +16,75 @@ public class TestData {
         return requestBody;
     }
 
+    public HashMap blogRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
+    public HashMap deliverymanRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
+    public HashMap merchantShopRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
+    public HashMap merchantRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
+    public HashMap parcelRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
+    public HashMap pickupRequestRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
+    public HashMap supportRequestBody() {
+
+        HashMap<String, Object> requestBody = new HashMap<>();
+
+        requestBody.put("", "");
+
+        return requestBody;
+    }
+
     public HashMap requestBody(String folder) {
 
         reqBody.put("hub", hubRequestBody());
 
         return reqBody.get(folder);
     }
+
+
 }
