@@ -16,6 +16,7 @@ import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class API_Methods extends BaseTest {
     public static int id;
@@ -275,5 +276,22 @@ public class API_Methods extends BaseTest {
         }
     }
 
+    public static void nullControl(Object variable, int dataIndex, String fieldName) {
+
+        if (variable == null || "null".equals(variable)) {
+            // fieldName ile JSON'dan doğru alanı buluyoruz ve null olup olmadığını kontrol ediyoruz
+            assertNull(repJP.getString("[" + dataIndex + "]." + fieldName));
+        } else {
+            // Değişkenin tipi Integer ise getInt kullanıyoruz
+            if (variable instanceof Integer) {
+                assertEquals(variable, repJP.getInt("[" + dataIndex + "]." + fieldName));
+            }
+            // Değişkenin tipi String ise getString kullanıyoruz
+            else if (variable instanceof String) {
+                assertEquals(variable, repJP.getString("[" + dataIndex + "]." + fieldName));
+            }
+        }
+    }
 
 }
+
