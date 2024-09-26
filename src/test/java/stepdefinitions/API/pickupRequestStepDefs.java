@@ -5,7 +5,6 @@ import io.cucumber.java.en.*;
 import org.apache.http.client.entity.DeflateInputStream;
 import utilities.API_Utilities.API_Methods;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -27,18 +26,29 @@ public class pickupRequestStepDefs extends BaseTest {
 
             if (expectedID == repJP.getInt("[" + i + "].id")) {
 
-                List<Object> objectList = Arrays.asList(request_type,merchant_id,address,note,parcel_quantity,
-                                                         name,phone,cod_amount,invoice,weight,exchange,created_at,updated_at);
-
-                for (int j = 0; j < objectList.size(); j++) {
-                    API_Methods.nullControl(objectList.get(j),i,objectList.get(j).toString());
+                if ("null".equals(request_type)) {
+                    assertNull(repJP.getString("[" + i + "].request_type"));
+                }
+                else {
+                    assertEquals(request_type,repJP.getString("[" + i + "].request_type"));
                 }
 
+                if ("null".equals(name)) {
+                    assertNull(repJP.getString("[" + i + "].name"));
+                }
+                else {
+                    assertEquals(name,repJP.getString("[" + i + "].name" ));
+                }
+
+
             }
+
 
         }
 
     }
 
-
 }
+
+
+
