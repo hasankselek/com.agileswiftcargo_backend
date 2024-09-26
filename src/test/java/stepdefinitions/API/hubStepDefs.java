@@ -39,7 +39,7 @@ public class hubStepDefs extends BaseTest {
 
     // ************************************************ api/hub/{id} ******************************************************
     @Given("The api user verifies that the data in the response body includes {int}, {string}, {string}, {string}, {string}, {int}, {string} and {string}.")
-    public void the_api_user_verifies_that_the_data_in_the_response_body_includes_and(int id, String name, String phone, String address, String current_balance, int status, String created_at, String updated_at) {
+    public void the_api_user_verifies_that_the_data_in_the_response_body_includes_and(int id,String name, String phone, String address, String current_balance, int status, String created_at, String updated_at) {
         response.then()
                 .assertThat()
                 .body("id", equalTo(id),
