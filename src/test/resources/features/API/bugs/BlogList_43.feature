@@ -1,13 +1,13 @@
-Feature[US_043]: As an administrator (admin), I want to be able to access the entire blog list via API connection.
+Feature:[US_043] As an administrator (admin), I want to be able to access the entire blog list via API connection.
 
 
-  Scenario[4301]: Admin sends a GET request to api/blog/list endpoint with valid authorization information,
+  Scenario:[4301] Admin sends a GET request to api/blog/list endpoint with valid authorization information,
   verifies that the status code returned is 200.
     Given The api user sets "api/blog/list" path parameters.
 
     Then The api user verifies that the status code is 200.
 
-  Scenario[4302]: Admin sends a GET request to api/blog/list endpoint with invalid authorization information,
+  Scenario:[4302] Admin sends a GET request to api/blog/list endpoint with invalid authorization information,
   verifies that the status code returned is 401
   and the message information in the response body is “Unauthenticated”.
 
@@ -19,7 +19,7 @@ Feature[US_043]: As an administrator (admin), I want to be able to access the en
 
 
 
-  Scenario Outline[4303]: Admin sends a GET request to api/blog/list endpoint with valid authorization information,
+  Scenario Outline:[4303] Admin sends a GET request to api/blog/list endpoint with valid authorization information,
   verifies the information (title, image_id, description, position, status, created_by, views, created_at
   ,updated_at) returned in the response body of id(x).
 
