@@ -15,11 +15,11 @@ import org.junit.runner.RunWith;
         },
         features = {"src/test/resources/features/API", "src/test/resources/features/DB"},
         glue = {"stepdefinitions","hooks","utilities"},
-        tags = "@US",
+        tags = "@pp",
         dryRun =false
 
 
 
 )
-public class gülpembeRunner {
+public class gulpembeRunner {
 }

@@ -1,10 +1,13 @@
 package stepdefinitions.API;
 
 import base.BaseTest;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import utilities.API_Utilities.API_Methods;
 
 import static org.junit.Assert.assertEquals;
+
 
 public class API_Common_Stepdefinitions extends BaseTest {
 
@@ -28,6 +31,7 @@ public class API_Common_Stepdefinitions extends BaseTest {
 
     @Given("The api user verifies that the status code is {int}.")
     public void the_api_user_verifies_that_the_status_code_is(int code) {
+
         API_Methods.statusCodeAssert(code);
     }
 
@@ -51,7 +55,6 @@ public class API_Common_Stepdefinitions extends BaseTest {
     public void the_api_user_verifies_that_the_information_in_the_returned_response_body_is_the_same_as_the_id_path_parameter_written_in_the_endpoint(String data, String reponseId) {
         API_Methods.assertPathParam(data, reponseId);
     }
-
 
 
 

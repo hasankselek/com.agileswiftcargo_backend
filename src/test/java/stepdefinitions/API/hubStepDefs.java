@@ -39,7 +39,7 @@ public class hubStepDefs extends BaseTest {
 
     // ************************************************ api/hub/{id} ******************************************************
     @Given("The api user verifies that the data in the response body includes {int}, {string}, {string}, {string}, {string}, {int}, {string} and {string}.")
-    public void the_api_user_verifies_that_the_data_in_the_response_body_includes_and(int id, String name, String phone, String address, String current_balance, int status, String created_at, String updated_at) {
+    public void the_api_user_verifies_that_the_data_in_the_response_body_includes_and(int id,String name, String phone, String address, String current_balance, int status, String created_at, String updated_at) {
         response.then()
                 .assertThat()
                 .body("id", equalTo(id),
@@ -56,6 +56,7 @@ public class hubStepDefs extends BaseTest {
     // ************************************************ api/hub/add *******************************************************
     @Given("The api user prepares a POST request containing {string} and {string} information to send to the api hubadd endpoint.")
     public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_hubadd_endpoint(String phone, String address) {
+
         requestBody = builder
                 .addParameterForMap("phone", phone)
                 .addParameterForMap("address", address)
