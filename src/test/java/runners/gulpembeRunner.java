@@ -21,5 +21,5 @@ import org.junit.runner.RunWith;
 
 
 )
-public class gülpembeRunner {
+public class gulpembeRunner {
 }
