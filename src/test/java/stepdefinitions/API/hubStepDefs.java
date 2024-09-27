@@ -56,6 +56,7 @@ public class hubStepDefs extends BaseTest {
     // ************************************************ api/hub/add *******************************************************
     @Given("The api user prepares a POST request containing {string} and {string} information to send to the api hubadd endpoint.")
     public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_hubadd_endpoint(String phone, String address) {
+
         requestBody = builder
                 .addParameterForMap("phone", phone)
                 .addParameterForMap("address", address)
