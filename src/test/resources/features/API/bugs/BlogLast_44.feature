@@ -1,6 +1,6 @@
-Feature[US_044]: As an administrator (admin), I want to be able to access the last five blogs via an API connection.
+Feature:[US_044] As an administrator (admin), I want to be able to access the last five blogs via an API connection.
 
-  Scenario[4401]: Admin sends a GET request to "api/blog/last" endpoint with valid authorization information,
+  Scenario:[4401] Admin sends a GET request to "api/blog/last" endpoint with valid authorization information,
   verifies that the status code returned is 200.
     Given The api user sets "api/blog/last" path parameters.
 
@@ -9,7 +9,7 @@ Feature[US_044]: As an administrator (admin), I want to be able to access the la
     Then The api user verifies that the status code is 200.
 
 
-  Scenario[4402]:Admin sends a GET request to "api/blog/last" endpoint with invalid authorization information,
+  Scenario:[4402]Admin sends a GET request to "api/blog/last" endpoint with invalid authorization information,
   verifies that the status code returned is 401
   and the message information in the response body is “Unauthenticated”.
 
@@ -19,7 +19,7 @@ Feature[US_044]: As an administrator (admin), I want to be able to access the la
 
     And The api user verifies that the "message" information in the response body is "Unauthenticated.".
 
-  Scenario Outline[4403]: Admin sends a GET request to "api/blog/last" endpoint with valid authorization information,
+  Scenario Outline:[4403] Admin sends a GET request to "api/blog/last" endpoint with valid authorization information,
   verifies the information (title, image_id, description, position, status, created_by, views,
   created_at, updated_at) returned in the response body of id(x).
     Given The api user sets "api/blog/last" path parameters.
