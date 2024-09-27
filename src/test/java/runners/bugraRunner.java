@@ -15,11 +15,12 @@ import org.junit.runner.RunWith;
         },
         features = {"src/test/resources/features/API", "src/test/resources/features/DB"},
         glue = {"stepdefinitions","hooks","utilities"},
-        tags = "@US",
+        tags = "@API_US022",
         dryRun =false
-
 
 
 )
 public class bugraRunner {
+
+
 }

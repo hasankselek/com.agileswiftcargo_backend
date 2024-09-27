@@ -16,6 +16,7 @@ import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class API_Methods extends BaseTest {
     public static int id;
@@ -276,4 +277,6 @@ public class API_Methods extends BaseTest {
     }
 
 
+
 }
+
