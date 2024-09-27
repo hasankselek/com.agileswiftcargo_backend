@@ -6,6 +6,7 @@ import io.cucumber.java.Scenario;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -70,20 +71,20 @@ public class API_Methods extends BaseTest {
                 }
                 break;
             case "POST":
-                response = given()
-                        .spec(spec)
-                        .contentType(ContentType.JSON)
-                        .when()
-                        .body(requestBody)
-                        .post(fullPath);
-                break;
-            case "PATCH":
-                response = given()
-                        .spec(spec)
-                        .contentType(ContentType.JSON)
-                        .when()
-                        .body(requestBody)
-                        .patch(fullPath);
+                if (requestBody != null) {
+                    response = given()
+                            .spec(spec)
+                            .contentType(ContentType.JSON)
+                            .when()
+                            .body(requestBody)
+                            .post(fullPath);
+                } else {
+                    response = given()
+                            .spec(spec)
+                            .contentType(ContentType.JSON)
+                            .when()
+                            .post(fullPath);
+                }
                 break;
             case "DELETE":
                 response = given()
@@ -274,6 +275,12 @@ public class API_Methods extends BaseTest {
             // ID oluşturma
             addedId = API_Methods.addedId(pp2, pp3, folder, idKey);
         }
+    }
+
+    public static void assertBodyMatchers(String path, Object value) {
+        response.then()
+                .assertThat()
+                .body(path, Matchers.equalTo(value));
     }
 
 
