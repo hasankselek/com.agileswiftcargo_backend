@@ -3,13 +3,13 @@
 Feature:[US_047] As an administrator (admin), I want to be able to update the blog information with the specified id number via the API connection
 
 
-  @FAD
-  Scenario Outline:[TC_4701] admin Send a PATCH request to the api/blog/edit/{id} endpoint with valid authorization, correct id, and data
+
+  Scenario Outline:admin Send a PATCH request to the api/blog/edit/{id} endpoint with valid authorization, correct id, and data
   (title, description, position, status), verify that the response status code is 200, the message is 'Updated'.
 
     * The api user sets "api/blog/edit/<id>" path parameters.
 
-    * The api user prepares a "patch" request to send to the api blog edit endpoint.
+    * The api user prepares a patch request to send to the api blog edit endpoint.
 
     * The api user sends a "PATCH" request and saves the returned response.
 
@@ -19,10 +19,10 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      |     |
+      | 40  |
 
 
-  Scenario Outline:[TC_4702] admin When a PATCH request is sent to the api/blog/edit/{id} endpoint with valid authorization information with
+  Scenario Outline:admin When a PATCH request is sent to the api/blog/edit/{id} endpoint with valid authorization information with
   the correct (id) and no data, it should be verified that the status code returned is 400 and the message information
   in the response body is "No data to update".
 
@@ -38,15 +38,15 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      |    |
+      | 20 |
 
-  Scenario:[TC_4703] admin It should be verified that when sending a PATCH body  (title, description, position, status) that does not contain an (id)
+  Scenario:admin It should be verified that when sending a PATCH body  (title, description, position, status) that does not contain an (id)
   to the api/blog/edit/{id} endpoint with valid authorization information, the status code returned is 203 and the
   message in the response body is "No blog id."
 
     * The api user sets "api/blog/edit" path parameters.
 
-    * The api user prepares a "patch" request to send to the api blog edit endpoint.
+    * The api user prepares a patch request to send to the api blog edit endpoint.
 
     * The api user sends a "PATCH" request and saves the returned response.
 
@@ -56,13 +56,13 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
 
 
-  Scenario Outline:[TC_4704] admin when sending a PATCH body (title, description, position, status) that contains an unregistered (id)
+  Scenario Outline:admin when sending a PATCH body (title, description, position, status) that contains an unregistered (id)
   to the api/blog/edit/{id} endpoint, the status code returned is 203 and the message in the response body is
   "there is no blog with this id",.
 
     * The api user sets "api/blog/edit/<id>" path parameters.
 
-    * The api user prepares a "patch" request to send to the api blog edit endpoint.
+    * The api user prepares a patch request to send to the api blog edit endpoint.
 
     * The api user sends a "PATCH" request and saves the returned response.
 
@@ -74,13 +74,13 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
       | id   |
       | 2514 |
 
-  Scenario Outline:[TC_4705] Invalid Token When a PATCH body (title, description, position, status) is sent to the api/blog/edit/{id} endpoint
+  Scenario Outline:Invalid Token When a PATCH body (title, description, position, status) is sent to the api/blog/edit/{id} endpoint
   with invalid authorization information, it should be verified that the status code returned is 401 and the message information
   in the response body is “Unauthenticated.”
 
     * The api user sets "api/blog/edit/<id>" path parameters.
 
-    * The api user prepares a "patch" request to send to the api blog edit endpoint.
+    * The api user prepares a patch request to send to the api blog edit endpoint.
 
     * The api user sends a "PATCH" request and saves the returned response.
 
@@ -90,14 +90,14 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      | 419 |
+      | 39 |
 
-  Scenario Outline:[TC_4706] admin verified that the id in the response body returned from the api/blog/edit/{id} endpoint is
+  Scenario Outline:admin verified that the id in the response body returned from the api/blog/edit/{id} endpoint is
   the same as the id path parameter in the api/blog/edit/{id} endpoint.
 
     * The api user sets "api/blog/edit/<id>" path parameters.
 
-    * The api user prepares a "patch" request to send to the api blog edit endpoint.
+    * The api user prepares a patch request to send to the api blog edit endpoint.
 
     * The api user sends a "PATCH" request and saves the returned response.
 
@@ -105,10 +105,10 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      | 419 |
+      | 25 |
 
 
-  Scenario Outline:[TC_4707] admin It should be verified that the hub record requested to be updated via API has been updated via API.
+  Scenario Outline:admin It should be verified that the hub record requested to be updated via API has been updated via API.
   (It can be verified that the record has been updated by sending a GET request to the api/hub/{id} endpoint with the “id”
   returned in the response body).
 
@@ -120,4 +120,4 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      | 419 |
+      | 24 |

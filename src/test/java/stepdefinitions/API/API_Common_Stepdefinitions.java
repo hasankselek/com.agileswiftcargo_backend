@@ -6,6 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import utilities.API_Utilities.API_Methods;
 
+import static hooks.HooksAPI.spec;
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
@@ -27,6 +29,7 @@ public class API_Common_Stepdefinitions extends BaseTest {
         } else {
             API_Methods.sendRequest(httpMethod, requestBody);
         }
+
     }
 
     @Given("The api user verifies that the status code is {int}.")
