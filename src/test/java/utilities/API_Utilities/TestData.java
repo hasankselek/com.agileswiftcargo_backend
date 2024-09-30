@@ -1,8 +1,12 @@
 package utilities.API_Utilities;
 
+import com.github.javafaker.Faker;
+import com.github.javafaker.Weather;
+
 import java.util.HashMap;
 
 public class TestData {
+
     HashMap<String, HashMap<String, Object>> reqBody = new HashMap<>();
 
     public HashMap hubRequestBody() {
@@ -20,7 +24,10 @@ public class TestData {
 
         HashMap<String, Object> requestBody = new HashMap<>();
 
-        requestBody.put("", "");
+
+        requestBody.put("title", "Marhabalar");
+        requestBody.put("description", "Postman Asrina Hos Geldiniz");
+        requestBody.put("position",12);
 
         return requestBody;
     }
