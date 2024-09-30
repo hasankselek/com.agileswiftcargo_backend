@@ -52,12 +52,23 @@ Feature: As an administrator (admin), I want to be able to update ticket informa
       | 3             | delivery | medium   | kargo telimati | kargo teslim edilemedi | 2024-09-30 |
 
   @API_TC5304
-    Scenario: When a PATCH body (department_id, service, priority, subject, description, date) with invalid authorization information is sent to the
+  Scenario Outline:Invalid Token When a PATCH body (department_id, service, priority, subject, description, date) with invalid authorization information is sent to the
   api/ticket/edit/{id} endpoint, it should be verified that the status code returned is 401 and the message information in the response body is "Unauthenticated.".
     #api/ticket/edit/{id} endpoint'ine gecersiz authorization bilgileri ile bir PATCH body (department_id, service, priority, subject, description, date)
     # gönderildiginde dönen status code'in 401 oldugu ve response body'deki message bilgisinin "Unauthenticated." oldugu dogrulanmali.
+
+    * Api user sets "api/ticket/edit/" path parameters.
+    * Add Ticket that <department_id>,"<service>","<priority>","<subject>","<description>","<date>" in the request body
+    * Send "PATCH" request with invalid token
+    * Verify that the response status code is 401
+    * Verify message in the response body is "Unauthenticated."
+
+    Examples:
+      | department_id | service  | priority | subject         | description            | date       |
+      | 3             | delivery | medium   | kargo teslimati | kargo teslim edilemedi | 2024-09-30 |
+
   @API_TC5305
-    Scenario: Verify that the id in the response body returned from the api/ticket/edit/{id} endpoint is the same as the id path parameter
+    Scenario:admin Verify that the id in the response body returned from the api/ticket/edit/{id} endpoint is the same as the id path parameter
   in the api/ticket/edit/{id} endpoint.
     #api/ticket/edit/{id} endpoint'inden donen response body icindeki id bilgisinin api/ticket/edit/{id} endpoint'inde yazan id path parametresi
     # ile ayni oldugu dogrulanmali.

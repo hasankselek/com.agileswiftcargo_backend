@@ -85,22 +85,6 @@ public class API_Methods extends BaseTest {
                         .body(requestBody)
                         .patch(fullPath);
                 break;
-            case "PATCH":
-                if (requestBody != null) {
-                    response = given()
-                            .spec(spec)
-                            .contentType(ContentType.JSON)
-                            .when()
-                            .body(requestBody)
-                            .patch(fullPath);
-                } else {
-                    response = given()
-                            .spec(spec)
-                            .contentType(ContentType.JSON)
-                            .when()
-                            .patch(fullPath);
-                }
-                break;
             case "DELETE":
                 response = given()
                         .spec(spec)
