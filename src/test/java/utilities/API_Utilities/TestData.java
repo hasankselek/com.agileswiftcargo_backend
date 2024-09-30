@@ -47,7 +47,9 @@ public class TestData {
 
         HashMap<String, Object> requestBody = new HashMap<>();
 
-        requestBody.put("", "");
+        requestBody.put("name","Ali" );
+        requestBody .put("business_name","PARIS AS" );
+        requestBody.put("mobile","123456789" );
 
         return requestBody;
     }
