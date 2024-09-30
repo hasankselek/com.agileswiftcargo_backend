@@ -20,6 +20,13 @@ public class TestData {
         return requestBody;
     }
 
+    public HashMap requestBody(String folder) {
+
+        reqBody.put("hub", hubRequestBody());
+
+        return reqBody.get(folder);
+    }
+
     public HashMap blogRequestBody() {
 
         HashMap<String, Object> requestBody = new HashMap<>();
@@ -68,14 +75,7 @@ public class TestData {
         return requestBody;
     }
 
-    public HashMap pickupRequestRequestBody() {
 
-        HashMap<String, Object> requestBody = new HashMap<>();
-
-        requestBody.put("", "");
-
-        return requestBody;
-    }
 
     public HashMap supportRequestBody() {
 
@@ -86,11 +86,21 @@ public class TestData {
         return requestBody;
     }
 
-    public HashMap requestBody(String folder) {
 
-        reqBody.put("hub", hubRequestBody());
+    public HashMap<String, Object> regularRequestBody(String folder1) {
+        HashMap<String, Object> regularRequestBody = new HashMap<>();
+        regularRequestBody.put("note", "Hızlı ve Guvenilir teslimatin tek adresi");
+        regularRequestBody.put("parcel_quantity", 17);
 
-        return reqBody.get(folder);
+
+        return regularRequestBody;
+    }
+
+    public HashMap requestRegularBody(String folder1) {
+
+        reqBody.put("pickuprequest", regularRequestBody(folder1));
+
+        return reqBody.get(folder1);
     }
 
 

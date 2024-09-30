@@ -1,6 +1,7 @@
 Feature: As an administrator (admin), I want to be able to update the information of the hub with the specified id number via the API connection.
 
-  Scenario Outline: admin Send a PATCH request to the api/hub/edit/{id} endpoint with valid authorization, correct id, and data
+
+  Scenario Outline: admin HUB Send a PATCH request to the api/hub/edit/{id} endpoint with valid authorization, correct id, and data
   (name, phone, address), verify that the response status code is 200, the message is 'Updated', and the id in the
   response body matches the id in the path. Then, confirm the update by sending a GET request to api/hub/{id} using
   the same id.
