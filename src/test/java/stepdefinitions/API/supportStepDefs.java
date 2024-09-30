@@ -2,6 +2,8 @@ package stepdefinitions.API;
 
 import base.BaseTest;
 import io.cucumber.java.en.Given;
+import io.restassured.http.ContentType;
+import org.json.JSONObject;
 import org.junit.Assert;
 import pojos.Pojo;
 import utilities.API_Utilities.API_Methods;
@@ -9,12 +11,12 @@ import utilities.API_Utilities.API_Methods;
 import java.util.HashMap;
 import java.util.Map;
 
+import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class supportStepDefs extends BaseTest {
 
-    String requestBody;
     @Given("Api user sets {string} path parameters.")
     public void the_api_user_sets_path_parameters(String pathParam) {
         if (API_Methods.addedId == 0) {
@@ -79,23 +81,20 @@ public class supportStepDefs extends BaseTest {
     }
     @Given("Update that {int} in the request body and response body")
     public void update_that_status_in_the_request_body_and_response_body(int status) {
-        requestBody = builder
-                .addParameterForJSONObject("status", status)
-                .buildUsingJSONObject();
+        requestBody.put("status", status);
         String pathId = String.valueOf(status);
         map = response.as(HashMap.class);
         Assert.assertEquals(pathId,((Map) (map.get("data"))).get("status"));
     }
     @Given("Add Ticket that {int},{string},{string},{string},{string},{string} in the request body")
     public void add_Ticket(int department_id, String service,String priority,String subject,String description,String date) {
-        requestBody = builder
-                .addParameterForJSONObject("department_id", department_id)
-                .addParameterForJSONObject("service", service)
-                .addParameterForJSONObject("priority", priority)
-                .addParameterForJSONObject("subject", subject)
-                .addParameterForJSONObject("description", description)
-                .addParameterForJSONObject("date", date)
-                .buildUsingJSONObject();
+        requestBody.put("department_id", department_id)
+                .put("service", service)
+                .put("priority", priority)
+                .put("subject", subject)
+                .put("description", description)
+                .put("date", date);
+
        // String pathId = String.valueOf();
        // map = response.as(HashMap.class);
        // Assert.assertEquals(pathId,((Map) (map.get("data"))).get("status"));
@@ -103,6 +102,17 @@ public class supportStepDefs extends BaseTest {
     @Given("User prepares a PATCH request that contains no data.")
     public void user_send_a_request() {
         Pojo hubAdd = new Pojo();
+
+    }
+    @Given("Send PATCH request {int}")
+    public void send_request(int id) {
+        requestBody.put("id",id);
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(requestBody.toString())
+                .patch(API_Methods.fullPath);
 
     }
 }
