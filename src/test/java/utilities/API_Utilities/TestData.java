@@ -43,7 +43,14 @@ public class TestData {
 
         HashMap<String, Object> requestBody = new HashMap<>();
 
-        requestBody.put("", "");
+        requestBody.put("name", "cimen.deliveryman");
+        requestBody.put("mobile", "51515951595");
+        requestBody.put("email", "cimeno.deliveryman@agileswiftcargo.com");
+        requestBody.put("address", "W");
+        requestBody.put("delivery_charge", "0.00");
+        requestBody.put("pickup_charge", "0.00");
+        requestBody.put("return_charge", "0.00");
+
 
         return requestBody;
     }
