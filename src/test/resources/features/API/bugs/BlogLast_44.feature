@@ -1,3 +1,4 @@
+
 Feature:[US_044] As an administrator (admin), I want to be able to access the last five blogs via an API connection.
 
   Scenario:admin sends a GET request to "api/blog/last" endpoint with valid authorization information,
@@ -22,7 +23,7 @@ Feature:[US_044] As an administrator (admin), I want to be able to access the la
 
     And The api user verifies that the "message" information in the response body is "Unauthenticated.".
 
-  @z
+
   Scenario Outline:admin sends a GET request to "api/blog/last" endpoint with valid authorization information,
   verifies the information (title, image_id, description, position, status, created_by, views,
   created_at, updated_at) returned in the response body of id(x).
