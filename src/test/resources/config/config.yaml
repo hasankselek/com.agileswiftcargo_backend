@@ -3,7 +3,7 @@ api:
   unauthorizedExceptionMessage: "status code: 401, reason phrase: Unauthorized"
   unauthenticated: "Unauthenticated."
   invalidToken: "invalid"
-\
+
 
 
 database:
