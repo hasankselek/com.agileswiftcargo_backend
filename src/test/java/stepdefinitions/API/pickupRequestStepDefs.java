@@ -10,6 +10,7 @@ import pojos.Pojo;
 import utilities.API_Utilities.API_Methods;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
@@ -28,7 +29,7 @@ public class pickupRequestStepDefs extends BaseTest {
         if (requestBody == null || requestBody.isEmpty()) {
             API_Methods.sendRequest(httpMethod, null);
         } else {
-            API_Methods.sendRequest(httpMethod, requestBody.toString());
+            API_Methods.sendRequest(httpMethod, requestBody);
         }
     }
 
@@ -199,8 +200,57 @@ public class pickupRequestStepDefs extends BaseTest {
     public void the_api_user_verifies_that_the_id_information_in_the_returned_response_body_is_the_same_as_the_id_path_parameter_written_in_the_endpoint() {
         repJP = response.jsonPath();
 
-        Assert.assertEquals(API_Methods.id,repJP.getInt("data.[0]"));
+        Assert.assertEquals(API_Methods.id, repJP.getInt("data['Updated Pickup Request  ID']"));
 
+    }
+
+    @Given("The api user prepares a PATCH request to send to the api {string}, {string} and {string} pickup request express endpoint.")
+    public void the_api_user_prepares_a_patch_request_to_send_to_the_api_and_pickup_request_express_endpoint(String address,String note,String name) {
+        API_Common_Stepdefinitions.requestBody=builder
+                .addParameterForJSONObject("address", address)
+                .addParameterForJSONObject("note", note)
+                .addParameterForJSONObject("name", name)
+                .buildUsingJSONObject();
+    }
+
+    @Given("The api user verifies that the id information in the returned response body is the same as the id path parameter written in the express endpoint Hasan.")
+    public void the_api_user_verifies_that_the_id_information_in_the_returned_response_body_is_the_same_as_the_id_path_parameter_written_in_the_express_endpoint() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(API_Methods.id, repJP.getInt("data['Updated Request  ID']"));
+
+    }
+
+    @Given("The api user verifies that the data Deleted id information in the returned response body is the same as the id path parameter written in the endpoint Hasan.")
+    public void the_api_user_verifies_that_the_data_deleted_id_information_in_the_returned_response_body_is_the_same_as_the_id_path_parameter_written_in_the_endpoint() {
+        map = response.as(HashMap.class);
+
+        String pathId = String.valueOf(API_Methods.id);
+
+        Assert.assertEquals(pathId,((Map) (map.get("data"))).get("deleted data"));
+    }
+
+    @Given("The api user prepares a patch request to send to the api regular edit endpoint.")
+    public void the_api_user_prepares_a_patch_request_to_send_to_the_api_regular_edit_endpoint() {
+
+        requestBody.put("note", "Hasan");
+        requestBody.put("parcel_quantity", 5);
+
+    }
+
+    @Given("The api user prepares a patch request to send to the api express edit endpoint.")
+    public void the_api_user_prepares_a_patch_request_to_send_to_the_api_express_edit_endpoint() {
+
+        requestBody.put("address", "Arizona");
+        requestBody.put("note", "Updated request");
+        requestBody.put("name", "Express Request");
+
+    }
+
+    @Given("The api user sends a {string} request, saves the returned response, and verifies that the status code is '401' with the reason phrase Unauthorized Hasan.")
+    public void the_api_user_sends_a_request_saves_the_returned_response_and_verifies_that_the_status_code_is_with_the_reason_phrase_unauthorized(String httpMethod) {
+        String response = (requestBody.toString() == null) ? API_Methods.tryCatchRequest(httpMethod, null) : API_Methods.tryCatchRequest(httpMethod, requestBody.toString());
+        assertEquals(configLoader.getApiConfig("unauthorizedExceptionMessage"), response);
     }
 
 

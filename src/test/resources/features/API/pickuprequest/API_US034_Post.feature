@@ -1,19 +1,13 @@
 Feature: As an administrator (admin) I want to be able to create a new express pickup record via API connection.
 
   @test
-  Scenario Outline: admin Send a POST request to the api/pickuprequest/regular/add endpoint with valid authorization and the correct data
-  (name, phone, address), verify that the response status code is 200 and the message in the response body is
-  'Hub is added'. Then, confirm the creation of the new hub by sending a GET request to the api/pickuprequest/regular/add/{id} endpoint
-  using the 'New Hub ID' from the response.
+  Scenario Outline: admin When a POST body with valid authorization information and correct data (merchant_id, adress, name, phone) is sent to the api/pickuprequest/express/add endpoint and valid information
+  it should be verified that the status code returned is 200 and the message information in the response body is "Pickup Request Added".
 
     * The api user sets "api/pickuprequest/express/add" path parameters.
-    # Api kullanicisi "api/hub/add" path parametrelerini olusturur
     * The api user prepares a POST request containing <merchant_id>, "<address>", "<name>" and "<phone>" information to send to the api pickuprequestexpress add endpoint.
-    # Api kullanicisi api hubadd endpointine gondermek icin <merchant_id>, "<address>"  "<name>" ve "<phone>" bilgilerini iceren bir post request hazirlar
     * The api user sends a "POST" request and saves the returned response Hasan.
-    # Api kullanicisi POST request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
-    # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Pickup Request Added".
 
     Examples:
@@ -22,17 +16,13 @@ Feature: As an administrator (admin) I want to be able to create a new express p
 
 
   @test
-  Scenario Outline: admin When a POST body (merchant_id,address,name,phone) with valid authorization information and missing data (merchant_id) is sent to api/pickuprequest/regular/add endpoint,
+  Scenario Outline: admin When a POST body (adress,name,phone) with valid authorization information and missing data (merchant_id) is sent to api/pickuprequest/express/add endpoint,
   the status code returned is 400 and the message in the response body is "No merchant id."
 
     * The api user sets "api/pickuprequest/express/add" path parameters.
-    # Api kullanicisi "api/hub/add" path parametrelerini olusturur
     * The api user prepares a POST request containing <merchant_id>, "<address>", "<name>" and "<phone>" information to send to the api pickuprequestexpress add endpoint.
-        # Api kullanicisi api hubadd endpointine gondermek icin <merchant_id>, "<address>"  "<name>" ve "<phone>" bilgilerini iceren bir post request hazirlar
     * The api user sends a "POST" request and saves the returned response Hasan.
-    # Api kullanicisi POST request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 400.
-    # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "No merchant id.".
 
     Examples:
@@ -45,13 +35,9 @@ Feature: As an administrator (admin) I want to be able to create a new express p
   and the message in the response body is "there is no merchant with this id.".
 
     * The api user sets "api/pickuprequest/regular/add" path parameters.
-    # Api kullanicisi "api/hub/add" path parametrelerini olusturur
     * The api user prepares a POST request containing <merchant_id>, "<address>", "<name>" and "<phone>" information to send to the api pickuprequestexpress add endpoint.
-        # Api kullanicisi api hubadd endpointine gondermek icin <merchant_id>, "<address>"  "<name>" ve "<phone>" bilgilerini iceren bir post request hazirlar
     * The api user sends a "POST" request and saves the returned response Hasan.
-    # Api kullanicisi POST request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 400.
-    # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "there is no merchant with this id.".
 
     Examples:
@@ -60,20 +46,16 @@ Feature: As an administrator (admin) I want to be able to create a new express p
 
 
   @test
-  Scenario Outline: Invalid Token Send a POST request to the api/pickuprequest/regular/add endpoint with invalid authorization and correct data
+  Scenario Outline: Invalid Token Send a POST request to the api/pickuprequest/express/add endpoint with invalid authorization and correct data
   (merchant_id, adress, name, phone), verify that the response status code is 401 and the message in the response body is
   'Unauthenticated.'
 
     * The api user sets "api/pickuprequest/express/add" path parameters.
-    # Api kullanicisi "api/hub/add" path parametrelerini olusturur
     * The api user prepares a POST request containing <merchant_id>, "<address>", "<name>" and "<phone>" information to send to the api pickuprequestexpress add endpoint.
-        # Api kullanicisi api hubadd endpointine gondermek icin <merchant_id>, "<address>"  "<name>" ve "<phone>" bilgilerini iceren bir post request hazirlar
     * The api user sends a "POST" request and saves the returned response Hasan.
-    # Api kullanicisi POST request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 401.
-    # Api kullanicisi status codeun 401 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "Unauthenticated.".
-    # Api kullanicisi response bodydeki message bilgisinin "Unauthenticated." oldugunu dogrular
+
 
     Examples:
       | merchant_id | address       | name            | phone     |
@@ -83,11 +65,8 @@ Feature: As an administrator (admin) I want to be able to create a new express p
   (It can be verified that the record was created by sending a GET request to the api/pickuprequest/express/add/ endpoint with the "New Pickup Request  ID" returned in the response body).
 
     * The api user sets "api/pickuprequest/express/add/<id>" path parameters.
-    # Api kullanicisi "api/pickuprequest/express/add/{id}" path parametrelerini olusturur
     * The api user sends a "GET" request and saves the returned response.
-    # Api kullanicisi GET request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
-    # Api kullanicisi status codeun 200 oldugunu dogrular
 
     Examples:
       | id  |
