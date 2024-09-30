@@ -1,27 +1,15 @@
 package stepdefinitions.API;
 
 import base.BaseTest;
-import com.google.gson.Gson;
 import io.cucumber.java.en.Given;
-import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import org.hamcrest.core.IsEqual;
 import org.junit.Assert;
-import pojos.Pojo;
-import pojos.SupportPojo;
 import utilities.API_Utilities.API_Methods;
-import utilities.API_Utilities.TestData;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
-import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class supportStepDefs extends BaseTest {
 
