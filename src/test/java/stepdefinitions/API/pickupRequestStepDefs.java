@@ -1,16 +1,36 @@
 package stepdefinitions.API;
 
 import base.BaseTest;
+import com.google.gson.Gson;
 import io.cucumber.java.en.*;
-import org.apache.http.client.entity.DeflateInputStream;
+import io.restassured.http.ContentType;
+import org.json.JSONObject;
+import org.junit.Assert;
+import pojos.Pojo;
 import utilities.API_Utilities.API_Methods;
 
-import java.util.List;
+import java.util.HashMap;
 
+import static hooks.HooksAPI.spec;
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.*;
 
 public class pickupRequestStepDefs extends BaseTest {
 
+
+    Gson gson = new Gson();
+    JSONObject data;
+
+
+
+    @Given("The api user sends a {string} request and saves the returned response Hasan.")
+    public void the_api_user_sends_a_request_and_saves_the_returned_response(String httpMethod) {
+        if (requestBody == null || requestBody.isEmpty()) {
+            API_Methods.sendRequest(httpMethod, null);
+        } else {
+            API_Methods.sendRequest(httpMethod, requestBody.toString());
+        }
+    }
 
     // ************************************************ api/pickuprequest/list(regular-express) ******************************************************
     @Given("The api user verifies the information in the response body for the entry with the specified {int} index, including {int}, {string}, {int}, {string}, {string}, {int}, {string}, {string}, {string}, {string}, {int}, {int}, {string} and {string}.")
@@ -126,6 +146,64 @@ public class pickupRequestStepDefs extends BaseTest {
         API_Methods.assertBodyMatchers("updated_at",updated_at);
 
     }
+
+
+    @Given("The api user prepares a POST request containing {int}, {string}, {string} and {string} information to send to the api pickuprequestexpress add endpoint.")
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_pickuprequestexpress_add_endpoint(int merchant_id, String address, String name, String phone) {
+        requestBody.put("merchant_id", merchant_id);
+        requestBody.put("address",address);
+        requestBody.put("name",name);
+        requestBody.put("phone",phone);
+    }
+
+
+    @Given("The api user prepares a POST request containing {int}, {string} and {int} information to send to the api pickuprequestregular add endpoint.")
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_pickuprequestregular_add_endpoint(int merchant_id, String note, Integer parcel_quantity) {
+        requestBody.put("merchant_id", merchant_id);
+        requestBody.put("note", note);
+        requestBody.put("parcel_quantity", parcel_quantity);
+    }
+
+    @Given("The api user prepares a POST request containing {string} and {int} information to send to the api pickuprequestregular add endpoint.")
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_pickuprequestregular_add_endpoint(String note, int parcel_quantity) {
+
+        requestBody.put("note", note);
+        requestBody.put("parcel_quantity", parcel_quantity);
+    }
+
+    @Given("The api user prepares a PATCH request to send to the api {string} and {int} pickup request regular endpoint.")
+    public void the_api_user_prepares_a_patch_request_to_send_to_the_api_hubedit_endpoint(String note,int parcel_quantity) {
+        API_Common_Stepdefinitions.requestBody=builder
+                .addParameterForJSONObject("note", note)
+                .addParameterForJSONObject("parcel_quantity", parcel_quantity)
+                .buildUsingJSONObject();
+    }
+
+    @Given("The api user prepares a {string} request that contains no data Hasan.")
+    public void the_api_user_prepares_a_post_request_that_contains_no_data(String request) {
+        API_Common_Stepdefinitions.requestBody=builder
+                .addParameterForJSONObject("note","")
+                .addParameterForJSONObject("parcel_quantity", "")
+                .buildUsingJSONObject();
+
+    }
+
+    @Given("The api user verifies that id is {string}")
+    public void the_api_user_verifies_that_name_is(String value) {
+        map = response.as(HashMap.class);
+        API_Common_Stepdefinitions.requestBody = gson.toJson(map);
+        Assert.assertEquals(value, map.get("id"));
+    }
+
+    @Given("The api user verifies that the id information in the returned response body is the same as the id path parameter written in the endpoint Hasan.")
+    public void the_api_user_verifies_that_the_id_information_in_the_returned_response_body_is_the_same_as_the_id_path_parameter_written_in_the_endpoint() {
+        repJP = response.jsonPath();
+
+        Assert.assertEquals(API_Methods.id,repJP.getInt("data.[0]"));
+
+    }
+
+
 }
 
 
