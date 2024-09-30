@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import pojos.PackagingPojo;
 import utilities.API_Utilities.Authentication;
 
 import static io.restassured.RestAssured.given;
@@ -17,6 +18,7 @@ public class packagingStepDefs extends BaseTest {
     Response response;
     String requestBody;
     JsonPath resJP;
+    PackagingPojo packagingPojo;
 
 
     @Then("verifies response body where {int} {string} {string} {int} {string} {string} {string}")
