@@ -17,13 +17,14 @@ Feature: As an administrator (admin), I want to be able to update ticket informa
       |670|3             | delivery | medium   | kargo telimati | kargo teslim edilemedi | 2024-09-30 |
 
   @API_TC5302
-  Scenario Outline:admin when PATCH request is sent to the api/ticket/edit/{id} endpoint with valid authorization information with the correct
+  Scenario Outline: admin when PATCH request is sent to the api/ticket/edit/{id} endpoint with valid authorization information with the correct
   (id) and no data, it should be verified that the status code returned is 400 and the message in the response body is "There is no data to update.".
       #api/ticket/edit/{id} endpoint'ine gecerli authorization bilgileri ile dogru (id) ve data icermeyen bir PATCH request gönderildiginde
       # dönen status code'in 400 oldugu ve response body'deki message bilgisinin "There is no data to update." oldugu dogrulanmali.
 
     * Api user sets "api/ticket/edit/<id>" path parameters.
-    * Send PATCH request without body with <id>
+#    * User prepares a PATCH request that contains no data.
+    * Send "PATCH" request  with invalid token
     * Verify that the response status code is 400
     * Verify message in the response body is "There is no data to update."
 

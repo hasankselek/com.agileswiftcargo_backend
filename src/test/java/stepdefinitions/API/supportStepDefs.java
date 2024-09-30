@@ -3,6 +3,7 @@ package stepdefinitions.API;
 import base.BaseTest;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
+import pojos.Pojo;
 import utilities.API_Utilities.API_Methods;
 
 import java.util.HashMap;
@@ -99,12 +100,10 @@ public class supportStepDefs extends BaseTest {
        // map = response.as(HashMap.class);
        // Assert.assertEquals(pathId,((Map) (map.get("data"))).get("status"));
     }
-    @Given("Send PATCH request without body with {double}")
-    public void user_send_a_request(double id) {
-        response = given()
-                .pathParam("id", id)
-                .when()
-                .patch("api/ticket/edit/{id}");
+    @Given("User prepares a PATCH request that contains no data.")
+    public void user_send_a_request() {
+        Pojo hubAdd = new Pojo();
+
     }
 }
 
