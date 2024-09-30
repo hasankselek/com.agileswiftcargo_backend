@@ -8,7 +8,7 @@ Feature: As an administrator (admin) I want to be able to access Shop List via A
   the response body.
 
     * The api user sets "api/shop/list" path parameters.
-    # Api kullanicisi "api/hub/list" path parametrelerini olusturur
+    # Api kullanicisi "api/shop/list" path parametrelerini olusturur
     * The api user sends a "GET" request and saves the returned response.
     # Api kullanicisi GET request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
@@ -26,7 +26,7 @@ Feature: As an administrator (admin) I want to be able to access Shop List via A
   status code is 401 and the message in the response body is 'Unauthenticated.'
 
     * The api user sets "api/shop/list" path parameters.
-    # Api kullanicisi "api/hub/list" path parametrelerini olusturur
+    # Api kullanicisi "api/shop/list" path parametrelerini olusturur
     * The api user sends a "GET" request, saves the returned response, and verifies that the status code is '401' with the reason phrase Unauthorized.
     # Api kullanicisi GET request gonderir, donen responsei kaydeder, status codeun '401' ve reason phrase bilgisinin Unauthorized oldugunu dogrular
 

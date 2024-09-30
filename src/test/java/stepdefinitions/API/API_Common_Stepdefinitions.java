@@ -9,6 +9,8 @@ import static org.junit.Assert.assertEquals;
 
 public class API_Common_Stepdefinitions extends BaseTest {
 
+    public static String requestBody;
+
     @Given("The api user sets {string} path parameters.")
     public void the_api_user_sets_path_parameters(String pathParam) {
         if (API_Methods.addedId == 0) {
