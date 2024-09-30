@@ -1,4 +1,4 @@
-Feature:
+Feature:As an administrator (admin), I want to be able to update the packaging information with the specified id number via API connection.
 
   @patch1
   Scenario: admin Send a PATCH request to the endpoint with valid authorization, verify that the response status code is 200, the message is 'Updated', and the id in the
@@ -36,5 +36,7 @@ Feature:
     * The api user sends a "PATCH" request and saves the returned response.
     * The api user verifies that the status code is 203.
     * The api user verifies that the "message" information in the response body is "No id.".
+
+
 
 
