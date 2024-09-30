@@ -1,8 +1,8 @@
 api:
   base_url: "https://qa.agileswiftcargo.com/"
   unauthorizedExceptionMessage: "status code: 401, reason phrase: Unauthorized"
+  unauthenticated: "Unauthenticated."
   invalidToken: "invalid"
-
   business_name: France A.S.
 
 database:

@@ -1,8 +1,12 @@
 package utilities.API_Utilities;
 
+import com.github.javafaker.Faker;
+import com.github.javafaker.Weather;
+
 import java.util.HashMap;
 
 public class TestData {
+
     HashMap<String, HashMap<String, Object>> reqBody = new HashMap<>();
 
     public HashMap hubRequestBody() {
@@ -16,11 +20,21 @@ public class TestData {
         return requestBody;
     }
 
+    public HashMap requestBody(String folder) {
+
+        reqBody.put("hub", hubRequestBody());
+
+        return reqBody.get(folder);
+    }
+
     public HashMap blogRequestBody() {
 
         HashMap<String, Object> requestBody = new HashMap<>();
 
-        requestBody.put("", "");
+
+        requestBody.put("title", "Marhabalar");
+        requestBody.put("description", "Postman Asrina Hos Geldiniz");
+        requestBody.put("position",12);
 
         return requestBody;
     }
@@ -29,7 +43,14 @@ public class TestData {
 
         HashMap<String, Object> requestBody = new HashMap<>();
 
-        requestBody.put("", "");
+        requestBody.put("name", "cimen.deliveryman");
+        requestBody.put("mobile", "51515951595");
+        requestBody.put("email", "cimeno.deliveryman@agileswiftcargo.com");
+        requestBody.put("address", "W");
+        requestBody.put("delivery_charge", "0.00");
+        requestBody.put("pickup_charge", "0.00");
+        requestBody.put("return_charge", "0.00");
+
 
         return requestBody;
     }
@@ -63,14 +84,7 @@ public class TestData {
         return requestBody;
     }
 
-    public HashMap pickupRequestRequestBody() {
 
-        HashMap<String, Object> requestBody = new HashMap<>();
-
-        requestBody.put("", "");
-
-        return requestBody;
-    }
 
     public HashMap supportRequestBody() {
 
@@ -81,11 +95,21 @@ public class TestData {
         return requestBody;
     }
 
-    public HashMap requestBody(String folder) {
 
-        reqBody.put("hub", hubRequestBody());
+    public HashMap<String, Object> regularRequestBody(String folder1) {
+        HashMap<String, Object> regularRequestBody = new HashMap<>();
+        regularRequestBody.put("note", "Hızlı ve Guvenilir teslimatin tek adresi");
+        regularRequestBody.put("parcel_quantity", 17);
 
-        return reqBody.get(folder);
+
+        return regularRequestBody;
+    }
+
+    public HashMap requestRegularBody(String folder1) {
+
+        reqBody.put("pickuprequest", regularRequestBody(folder1));
+
+        return reqBody.get(folder1);
     }
 
 

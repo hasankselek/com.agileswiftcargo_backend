@@ -1,5 +1,6 @@
 Feature:As an administrator (admin), I want to be able to access the detailed information of the packaging with the specified id number via the API connection.
 
+  @get3
   Scenario: admin When a GET request is sent to the endpoint with valid authorization information and existing id number
   it should be verified that the status code returned is 200 , and response body include correct datas.
 
@@ -8,7 +9,7 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
     * The api user verifies that the status code is 200.
     * verifies response body where 2 "Bubble Poly" "20.00" 1 "2" "2023-08-01T14:12:21.000000Z" "2023-08-01T14:12:21.000000Z"
 
-
+  @get4
   Scenario: admin When a GET request is sent to the endpoint with valid authorization information and not existing id number
 
     * The api user sets "api/packaging/100" path parameters.
@@ -16,6 +17,7 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
     * The api user verifies that the status code is 203.
     * The api user verifies that the "message" information in the response body is "there is no packaging with this id".
 
+  @get5
   Scenario: admin When a GET request is sent to the endpoint with valid authorization information and without id number
 
     * The api user sets "api/packaging/" path parameters.
@@ -23,6 +25,7 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
     * The api user verifies that the status code is 203.
     * The api user verifies that the "message" information in the response body is "No id.".
 
+  @get6
   Scenario: Invalid Token When a GET request is sent to the endpoint with invalid authorization information,
   it should be verified that the status code returned is 401 and the message information in the response body is "Unauthenticated.".
 

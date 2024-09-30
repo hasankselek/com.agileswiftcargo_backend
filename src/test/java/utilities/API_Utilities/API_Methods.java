@@ -3,9 +3,11 @@ package utilities.API_Utilities;
 import base.BaseTest;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Given;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,7 +18,6 @@ import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 public class API_Methods extends BaseTest {
     public static int id;
@@ -270,12 +271,62 @@ public class API_Methods extends BaseTest {
                 idKey = "New Hub ID";
             }
 
-
             // ID oluşturma
             addedId = API_Methods.addedId(pp2, pp3, folder, idKey);
         }
     }
 
+    public static void assertBodyMatchers(String path, Object value) {
+        response.then().assertThat().body(path, Matchers.equalTo(value));
+    }
+
+    public static void verificationHasan(String pp1, String pp2,String pp3, String dataKey, String responseIdKey, String path, Object value) {
+        map = response.as(HashMap.class);
+
+        Object data = map.get(dataKey);  // "data" alanını elde ediyoruz
+
+        Object idValue = null;
+
+        if (data instanceof List) {
+            // Eğer "data" bir dizi ise
+            List<Map<String, Object>> dataList = (List<Map<String, Object>>) data;
+            idValue = dataList.get(0).get(responseIdKey);
+
+        } else if (data instanceof Map) {
+            // Eğer "data" bir obje ise
+            Map<String, Object> dataMap = (Map<String, Object>) data;
+            idValue = dataMap.get(responseIdKey);
+        }
+
+        int id = 0;
+
+        if (idValue instanceof String) {
+            id = Integer.parseInt((String) idValue);
+        } else {
+            id = (Integer) idValue;
+        }
+        System.out.println(responseIdKey + " : " + id);
+
+        spec = new RequestSpecBuilder().setBaseUri(configLoader.getApiConfig("base_url")).build();
+        spec.pathParams("pp1", pp1, "pp2", pp2, "pp3", pp3, "pp4", id);
+
+
+        response = given()
+                .spec(spec)
+                .header("Accept", "application/json")
+                .header("Authorization", "Bearer " + Authentication.generateToken("admin"))
+                .when()
+                .get("/{pp1}/{pp2}/{pp3}/{pp4}");
+
+        response.then()
+                .assertThat()
+                .body(path, equalTo(value));
+    }
+
+    @Given("The api user verifies that the {string} is {string} by sending a GET request to the {string} {string} {string} endpoint with the {string} {string} returned in the response body Hasan.")
+    public void the_api_user_verifies_that_the_is_by_sending_a_get_request_to_the_endpoint_with_the_returned_in_the_response_body(String path, String value, String pp1, String pp2,String pp3, String data, String reponseId) {
+        API_Methods.verificationHasan(pp1, pp2, pp3, data, reponseId, path, value);
+    }
 
 
 }

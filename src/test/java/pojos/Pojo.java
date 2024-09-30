@@ -18,4 +18,5 @@ public class Pojo {
 
     private String phone;
     private String address;
+
 }
