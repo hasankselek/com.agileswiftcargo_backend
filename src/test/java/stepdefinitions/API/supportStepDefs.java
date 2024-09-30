@@ -115,6 +115,27 @@ public class supportStepDefs extends BaseTest {
                 .patch(API_Methods.fullPath);
 
     }
+
+    @Given("Verify that ID in the response body equal in the endpoint ID")
+    public void verify_that_id_in_the_response_body_equal_in_the_endpoint_id() {
+        repJP= response.jsonPath();
+        Assert.assertEquals(API_Methods.id, repJP.getInt("data[0].id"));
+    }
+    @Given("Verify that {string} updated body in the response body")
+    public void add_Ticket_that(String subject) {
+        response.then()
+                .assertThat()
+                .body("subject", equalTo(subject));
+    }
+    @Given("Verifies that the data Deleted id information in the returned response body is the same as the id path parameter written in the endpoint.")
+    public void Verifies_that_the_data_deleted_id_information_in_the_returned_response_body_is_the_same_as_the_id_path_parameter_written_in_the_endpoint() {
+        map = response.as(HashMap.class);
+
+        String pathId = String.valueOf(API_Methods.id);
+
+        Assert.assertEquals(pathId,((Map) (map.get("data"))).get("Deleted ID"));
+    }
+
 }
 
 

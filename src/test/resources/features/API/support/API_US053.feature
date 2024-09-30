@@ -14,7 +14,7 @@ Feature: As an administrator (admin), I want to be able to update ticket informa
 
     Examples:
       |id | department_id | service  | priority | subject        | description            | date       |
-      |670|3             | delivery | medium   | kargo telimati | kargo teslim edilemedi | 2024-09-30 |
+      |670|3             | delivery | medium   | kargo teslimatiiii | kargo teslim edilemedi | 2024-09-30 |
 
   @API_TC5302
   Scenario Outline: admin when PATCH request is sent to the api/ticket/edit/{id} endpoint with valid authorization information with the correct
@@ -68,13 +68,30 @@ Feature: As an administrator (admin), I want to be able to update ticket informa
       | 3             | delivery | medium   | kargo teslimati | kargo teslim edilemedi | 2024-09-30 |
 
   @API_TC5305
-    Scenario:admin Verify that the id in the response body returned from the api/ticket/edit/{id} endpoint is the same as the id path parameter
+  Scenario Outline:admin Verify that the id in the response body returned from the api/ticket/edit/{id} endpoint is the same as the id path parameter
   in the api/ticket/edit/{id} endpoint.
     #api/ticket/edit/{id} endpoint'inden donen response body icindeki id bilgisinin api/ticket/edit/{id} endpoint'inde yazan id path parametresi
     # ile ayni oldugu dogrulanmali.
+    * Api user sets "api/ticket/edit/<id>" path parameters.
+    * Add Ticket that <department_id>,"<service>","<priority>","<subject>","<description>","<date>" in the request body
+    * Send PATCH request <id>
+    * Verify that ID in the response body equal in the endpoint ID
+
+    Examples:
+      |id | department_id | service  | priority | subject        | description            | date       |
+      |670|3             | delivery | medium   | kargo teslimatiiii | kargo teslim edilemedi | 2024-09-30 |
+
   @API_TC5306
-  Scenario: The ticket record that is requested to be updated through the API must be verified that it has been updated through the API.
+  Scenario Outline: admin The ticket record that is requested to be updated through the API must be verified that it has been updated through the API.
   (It can be verified that the record has been updated by sending a GET request to the api/ticket/{id} endpoint with the “id” returned in the response body).
     #API uzerinden güncellenmek istenen ticket kaydinin güncellendigi, API uzerinden dogrulanmali. (Response body'de dönen "id" ile api/ticket/{id} endpoint'ine
     # GET request gönderilerek kaydın güncellendiği doğrulanabilir.)
+    * Api user sets "api/ticket/<id>" path parameters.
+    * User send a "GET" request and saves the returned response
+    * Verify that "kargo teslimatiiii" updated body in the response body
+
+    Examples:
+      | id  |
+      | 670 |
+
 
