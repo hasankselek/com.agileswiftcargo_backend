@@ -4,13 +4,10 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
   Scenario Outline: admin When a GET request is sent to the api/pickuprequest/{id} endpoint with valid authorization information, it should be verified that the status code returned is 200.
 
     * The api user sets "api/pickuprequest/<id>" path parameters.
-    # Api kullanicisi "api/hub/list" path parametrelerini olusturur
     * The api user sends a "GET" request and saves the returned response.
-    # Api kullanicisi GET request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 200.
-    # Api kullanicisi status codeun 200 oldugunu dogrular
     * The api user verifies that the data in the response body includes <id>, "<request_type>", <merchant_id>, "<adress>", "<note>", <parcel_quantity>, "<name>", "<phone>", "<cod_amount>", "<invoive>", <weight>, <exchange>, "<created_at>" and "<updated_at>".
-    # Api kullanicisi response bodydeki data <id>, "<name>", "<request_type>", <merchant_id>, "<adress>", "<note>", <parcel_quantity>, "<name>", "<phone>", "<cod_amount>", "<invoive>", <weight>, <exchange>, "<created_at>" ve "<updated_at>" içeriklerini doğrular.
+
 
     Examples:
       | id  | request_type | merchant_id | adress | note               | parcel_quantity | name            | phone        | cod_amount | invoive | weight | exchange | created_at                  | updated_at                  |
@@ -21,26 +18,18 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
   response status code is 203 and the message in the response body is 'No id.'
 
     * The api user sets "api/pickuprequest" path parameters.
-    # Api kullanicisi "api/hub" path parametrelerini olusturur
     * The api user sends a "GET" request and saves the returned response.
-    # Api kullanicisi GET request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
-    # Api kullanicisi status codeun 203 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "No id.".
-    # Api kullanicisi response bodydeki message bilgisinin "No id." oldugunu dogrular
 
 
   Scenario Outline: admin Send a GET request to the api/pickuprequest/{id} endpoint with valid authorization and a non-existent id,
   verify that the response status code is 203 and the message in the response body is 'there is no hub with this id'
 
     * The api user sets "api/pickuprequest/<id>" path parameters.
-    # Api kullanicisi "api/hub/{id}" path parametrelerini olusturur
     * The api user sends a "GET" request and saves the returned response.
-    # Api kullanicisi GET request gonderir ve donen responsei kaydeder
     * The api user verifies that the status code is 203.
-    # Api kullanicisi status codeun 203 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "there is no pickup with this id.".
-    # Api kullanicisi response bodydeki message bilgisinin "there is no hub with this id" oldugunu dogrular
 
     Examples:
       | id     |
@@ -51,9 +40,7 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
   that the response status code is 401 and the message in the response body is 'Unauthenticated.'
 
     * The api user sets "api/pickuprequest/<id>" path parameters.
-    # Api kullanicisi "api/hub/<id>" path parametrelerini olusturur
     * The api user sends a "GET" request, saves the returned response, and verifies that the status code is '401' with the reason phrase Unauthorized.
-    # Api kullanicisi GET request gonderir, donen responsei kaydeder, status codeun '401' ve reason phrase bilgisinin Unauthorized oldugunu dogrular
 
     Examples:
       | id |

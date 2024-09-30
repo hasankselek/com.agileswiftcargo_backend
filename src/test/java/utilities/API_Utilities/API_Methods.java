@@ -3,6 +3,7 @@ package utilities.API_Utilities;
 import base.BaseTest;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Given;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -320,6 +321,11 @@ public class API_Methods extends BaseTest {
         response.then()
                 .assertThat()
                 .body(path, equalTo(value));
+    }
+
+    @Given("The api user verifies that the {string} is {string} by sending a GET request to the {string} {string} {string} endpoint with the {string} {string} returned in the response body Hasan.")
+    public void the_api_user_verifies_that_the_is_by_sending_a_get_request_to_the_endpoint_with_the_returned_in_the_response_body(String path, String value, String pp1, String pp2,String pp3, String data, String reponseId) {
+        API_Methods.verificationHasan(pp1, pp2, pp3, data, reponseId, path, value);
     }
 
 
