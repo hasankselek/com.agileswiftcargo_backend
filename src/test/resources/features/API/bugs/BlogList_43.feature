@@ -1,3 +1,4 @@
+
 Feature:[US_043] As an administrator (admin), I want to be able to access the entire blog list via API connection.
 
 
@@ -22,7 +23,7 @@ Feature:[US_043] As an administrator (admin), I want to be able to access the en
     And The api user verifies that the "message" information in the response body is "Unauthenticated.".
 
 
-  @nz
+
   Scenario Outline:admin sends a GET request to api/blog/list endpoint with valid authorization information,
   verifies the information (title, image_id, description, position, status, created_by, views, created_at
   ,updated_at) returned in the response body of id(x).
@@ -31,7 +32,7 @@ Feature:[US_043] As an administrator (admin), I want to be able to access the en
 
     When  The api user sends a "GET" request and saves the returned response.
 
-    When The api user verifies that the data in the response body includes <id>, "<title>", "<image_id>", "<description>", "<position>", <status>, <created_by>, "<views>", "<created_at>", "<updated_at>".
+    When The api user verifies that the data in the response body includes <id>, "<title>",<image_id>, "<description>", "<position>", <status>, <created_by> , "<views>" , "<created_at>" , "<updated_at>".
 
     Examples:
     | id  | id| title      | image_id | description                      |  position  |  status |created_by|views|created_at                  |updated_at                 |

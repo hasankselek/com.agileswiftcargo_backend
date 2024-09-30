@@ -1,3 +1,4 @@
+
 Feature:[US_046]As an administrator (admin) I want to be able to create a new blog record via an API connection.
 
   Scenario Outline:admin Send a POST request to the "api/blog/add" endpoint with valid authorization and the correct data
