@@ -1,6 +1,6 @@
 Feature:As an administrator (admin), I want to be able to access the detailed information of the pickup with the specified id number via the API connection.
 
-  @GET
+
   Scenario Outline: admin When a GET request is sent to the api/pickuprequest/{id} endpoint with valid authorization information, it should be verified that the status code returned is 200.
 
     * The api user sets "api/pickuprequest/<id>" path parameters.
@@ -28,6 +28,7 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
     # Api kullanicisi status codeun 203 oldugunu dogrular
     * The api user verifies that the "message" information in the response body is "No id.".
     # Api kullanicisi response bodydeki message bilgisinin "No id." oldugunu dogrular
+
 
   Scenario Outline: admin Send a GET request to the api/pickuprequest/{id} endpoint with valid authorization and a non-existent id,
   verify that the response status code is 203 and the message in the response body is 'there is no hub with this id'

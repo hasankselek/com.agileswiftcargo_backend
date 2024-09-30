@@ -9,9 +9,9 @@ import utilities.API_Utilities.API_Methods;
 import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
-
-
 public class API_Common_Stepdefinitions extends BaseTest {
+
+    public static String requestBody;
 
     @Given("The api user sets {string} path parameters.")
     public void the_api_user_sets_path_parameters(String pathParam) {
@@ -34,7 +34,6 @@ public class API_Common_Stepdefinitions extends BaseTest {
 
     @Given("The api user verifies that the status code is {int}.")
     public void the_api_user_verifies_that_the_status_code_is(int code) {
-
         API_Methods.statusCodeAssert(code);
     }
 

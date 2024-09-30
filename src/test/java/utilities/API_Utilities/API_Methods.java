@@ -17,7 +17,6 @@ import static hooks.HooksAPI.spec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 public class API_Methods extends BaseTest {
     public static int id;
@@ -71,20 +70,20 @@ public class API_Methods extends BaseTest {
                 }
                 break;
             case "POST":
-                if (requestBody != null) {
-                    response = given()
-                            .spec(spec)
-                            .contentType(ContentType.JSON)
-                            .when()
-                            .body(requestBody)
-                            .post(fullPath);
-                } else {
-                    response = given()
-                            .spec(spec)
-                            .contentType(ContentType.JSON)
-                            .when()
-                            .post(fullPath);
-                }
+                response = given()
+                        .spec(spec)
+                        .contentType(ContentType.JSON)
+                        .when()
+                        .body(requestBody)
+                        .post(fullPath);
+                break;
+            case "PATCH":
+                response = given()
+                        .spec(spec)
+                        .contentType(ContentType.JSON)
+                        .when()
+                        .body(requestBody)
+                        .patch(fullPath);
                 break;
             case "PATCH":
                 if (requestBody != null) {
@@ -287,18 +286,57 @@ public class API_Methods extends BaseTest {
                 idKey = "New Hub ID";
             }
 
-
             // ID oluşturma
             addedId = API_Methods.addedId(pp2, pp3, folder, idKey);
         }
     }
 
     public static void assertBodyMatchers(String path, Object value) {
-        response.then()
-                .assertThat()
-                .body(path, Matchers.equalTo(value));
+        response.then().assertThat().body(path, Matchers.equalTo(value));
     }
 
+    public static void verificationHasan(String pp1, String pp2,String pp3, String dataKey, String responseIdKey, String path, Object value) {
+        map = response.as(HashMap.class);
+
+        Object data = map.get(dataKey);  // "data" alanını elde ediyoruz
+
+        Object idValue = null;
+
+        if (data instanceof List) {
+            // Eğer "data" bir dizi ise
+            List<Map<String, Object>> dataList = (List<Map<String, Object>>) data;
+            idValue = dataList.get(0).get(responseIdKey);
+
+        } else if (data instanceof Map) {
+            // Eğer "data" bir obje ise
+            Map<String, Object> dataMap = (Map<String, Object>) data;
+            idValue = dataMap.get(responseIdKey);
+        }
+
+        int id = 0;
+
+        if (idValue instanceof String) {
+            id = Integer.parseInt((String) idValue);
+        } else {
+            id = (Integer) idValue;
+        }
+        System.out.println(responseIdKey + " : " + id);
+
+        spec = new RequestSpecBuilder().setBaseUri(configLoader.getApiConfig("base_url")).build();
+        spec.pathParams("pp1", pp1, "pp2", pp2, "pp3", pp3, "pp4", id);
+
+
+        response = given()
+                .spec(spec)
+                .header("Accept", "application/json")
+                .header("Authorization", "Bearer " + Authentication.generateToken("admin"))
+                .when()
+                .get("/{pp1}/{pp2}/{pp3}/{pp4}");
+
+        response.then()
+                .assertThat()
+                .body(path, equalTo(value));
+    }
 
 
 }
