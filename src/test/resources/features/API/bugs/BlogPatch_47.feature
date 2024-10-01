@@ -105,14 +105,14 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      | 25 |
+      | 74  |
 
 
   Scenario Outline:admin It should be verified that the hub record requested to be updated via API has been updated via API.
   (It can be verified that the record has been updated by sending a GET request to the api/hub/{id} endpoint with the “id”
   returned in the response body).
 
-    * The api user sets "api/hub/<id>" path parameters.
+    * The api user sets "api/blog/edit/<id>" path parameters.
 
     * The api user sends a "GET" request and saves the returned response.
 
@@ -120,4 +120,4 @@ Feature:[US_047] As an administrator (admin), I want to be able to update the bl
 
     Examples:
       | id  |
-      | 24 |
+      | 75 |
