@@ -1,5 +1,6 @@
 package config_Requirements;
 
+import base.BaseTest;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
@@ -8,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
-public class ConfigLoader {
+public class ConfigLoader  {
 
     private Map<String, Object> config;
 

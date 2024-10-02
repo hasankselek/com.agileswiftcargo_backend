@@ -42,7 +42,7 @@ Feature: As an administrator (admin), I want to be able to update the regular pi
 
 
 
-  Scenario Outline: admin The deletion of the hub record that is requested to be deleted from the API must be verified from the API.
+  Scenario Outline: admin The deletion of the pickup request record that is requested to be deleted from the API must be verified from the API.
   (It can be verified that the record has been deleted by sending a GET request to the api/hub/{id} endpoint
   with the “Deleted ID” returned in the response body).
 

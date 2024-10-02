@@ -11,15 +11,13 @@ import org.junit.runner.RunWith;
                 "html:target/default-cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedRerun.txt"
+                
         },
-        features = {"src/test/resources/features/API", "src/test/resources/features/DB"},
-        glue = {"stepdefinitions","hooks","utilities"},
-        tags = "@delete4",
-        dryRun =false
-
-
+        features = {"src/test/resources/features/API"},
+        glue = {"stepdefinitions", "hooks", "utilities"},
+        tags = "@d",
+        dryRun = false
 
 )
-public class gulpembeRunner {
+public class API_Runner {
 }

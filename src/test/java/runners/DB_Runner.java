@@ -11,15 +11,12 @@ import org.junit.runner.RunWith;
                 "html:target/default-cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
                 "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedRerun.txt"
         },
-        features = {"src/test/resources/features/API", "src/test/resources/features/DB"},
-        glue = {"stepdefinitions","hooks","utilities"},
-        tags = "@API_TC5301",
-        dryRun =false
-
-
+        features = {"src/test/resources/features/DB"},
+        glue = {"stepdefinitions"},
+        tags = "@DB",
+        dryRun = false
 
 )
-public class gulcihanRunner {
+public class DB_Runner {
 }
