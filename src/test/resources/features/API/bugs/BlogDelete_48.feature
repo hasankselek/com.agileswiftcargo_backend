@@ -53,7 +53,12 @@ Feature:[US_048]As an administrator (admin), I want to be able to delete blog in
 
     * The api user sets "api/blog/delete/<id>" path parameters.
 
-    * The api user sends a "DELETE" request, saves the returned response, and verifies that the status code is '401' with the reason phrase Unauthorized.
+
+    * The api user sends a "DELETE" request and saves the returned response.
+
+    * The api user verifies that the status code is 401.
+
+    * The api user verifies that the "message" information in the response body is "Unauthenticated.".
 
     Examples:
       | id |
