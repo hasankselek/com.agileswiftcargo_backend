@@ -65,7 +65,9 @@ Feature: admin I want to be able to update the status of the ticket with the spe
 
     * Api user sets "api/ticket/status-update/<id>" path parameters.
     * User send a "GET" request and saves the returned response
-    * Update that <status> in the request body and response body
+    * Update that status 1 in the request body and response body
+    * Verify that the response status code is 200
+    * Verify message in the response body is "Status Updated"
     Examples:
-      | id | status |
-      |585 | 3     |
+      | id |
+      |585 |

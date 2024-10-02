@@ -79,13 +79,17 @@ public class supportStepDefs extends BaseTest {
         String pathId = String.valueOf(API_Methods.id);
         Assert.assertEquals(pathId,((Map) (map.get("data"))).get("ID"));
     }
-    @Given("Update that {int} in the request body and response body")
+    @Given("Update that status {int} in the request body and response body")
     public void update_that_status_in_the_request_body_and_response_body(int status) {
         requestBody.put("status", status);
-        String pathId = String.valueOf(status);
-        map = response.as(HashMap.class);
-        Assert.assertEquals(pathId,((Map) (map.get("data"))).get("status"));
+        response = given()
+                .spec(spec)
+                .contentType(ContentType.JSON)
+                .body(requestBody.toString())
+                .when()
+                .get(API_Methods.fullPath);
     }
+
     @Given("Add Ticket that {int},{string},{string},{string},{string},{string} in the request body")
     public void add_Ticket(int department_id, String service,String priority,String subject,String description,String date) {
         requestBody.put("department_id", department_id)

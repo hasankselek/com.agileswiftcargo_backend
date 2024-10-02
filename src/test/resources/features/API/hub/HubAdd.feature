@@ -81,7 +81,8 @@ Feature: As an administrator (admin) I want to be able to create a new hub recor
     * The api user sets "api/hub/<id>" path parameters.
     # Api kullanicisi "api/hub/{id}" path parametrelerini olusturur
     * The api user sends a "GET" request and saves the returned response.
-    # Api kullanicisi GET request gonderir ve donen responsei kaydeder
+    # Api kullanicisi GET request gonderir ve donen responsei kaydede
+
     * The api user verifies that the status code is 200.
     # Api kullanicisi status codeun 200 oldugunu dogrular
 
