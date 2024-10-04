@@ -23,7 +23,6 @@ public class Manage {
 
     private String parcels = "ALTER TABLE parcels ADD COLUMN ismi_ali_olanlar INT(1) DEFAULT 0";
 
-   // private String parcels2 = "UPDATE parcels SET ismi_ali_olanlar = 1 WHERE LOWER(customer_name) LIKE '%ali%'";
 
 
 
