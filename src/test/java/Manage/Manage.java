@@ -17,6 +17,16 @@ public class Manage {
 
     private String supports = "UPDATE supports SET priority='highest' WHERE service = 'payment'";
 
+    private String merchant_statements = "SELECT sum(type) AS total_satis FROM merchant_statements WHERE date BETWEEN '2024-09-13' AND '2024-09-19' GROUP BY date";
+
+    private String parcel_logs = "UPDATE parcel_logs SET customer_address = '2379 Wilderman Ridge Suite 207 / Alysahaven' WHERE id = 25";
+
+    private String parcels = "ALTER TABLE parcels ADD COLUMN ismi_ali_olanlar INT(1) DEFAULT 0";
+
+   // private String parcels2 = "UPDATE parcels SET ismi_ali_olanlar = 1 WHERE LOWER(customer_name) LIKE '%ali%'";
+
+
+
 
    // control queries for US25 and US27
     private String controlQuery_salary="SELECT amount FROM u201212290_agilesqa.salary_generates WHERE month='2023-09' and user_id=28";

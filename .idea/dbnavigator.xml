@@ -25,9 +25,7 @@ UPDATE salary_generates SET amount=0 WHERE month='2023-09' AND user_id=28;]]></c
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="f1ee9367-ee36-46e3-a161-5c98625b5410" object-ref="schemas/u201212290_agilesqa/tables/salary_generates" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="f1ee9367-ee36-46e3-a161-5c98625b5410" />

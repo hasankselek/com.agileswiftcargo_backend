@@ -247,6 +247,21 @@ public class JDBCMethods {
 
     }
 
+    public static void printResultSet(ResultSet resultSet) {
+        try {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            while (resultSet.next()) {
+                for (int i = 1; i <= columnCount; i++) {
+                    System.out.print(metaData.getColumnName(i) + ": " + resultSet.getString(i) + " ");
+                }
+                System.out.println();
+            }
+        } catch (Exception e) {
+            System.out.println("ResultSet yazdırılırken bir hata oluştu: " + e.getMessage());
+        }
+    }
 }
 
 
