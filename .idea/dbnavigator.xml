@@ -5,20 +5,19 @@
     <preferences />
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
-    <record-view-column-sorting-type value="BY_INDEX" />
+    <record-view-column-sorting-type value="ALPHABETICAL" />
     <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="a97a3c56-4887-4dc8-a475-9b719b9c3680">
-      <console name="u201212290_agilesqa" type="STANDARD" schema="u201212290_agilesqa" session="Main"><![CDATA[SELECT * FROM u201212290_agilesqa.salary_generates;
-
+    <connection id="f1ee9367-ee36-46e3-a161-5c98625b5410">
+      <console name="Connection" type="STANDARD" schema="u201212290_agilesqa" session="Main"><![CDATA[SELECT amount FROM u201212290_agilesqa.salary_generates WHERE month='2023-09' AND user_id=28;
 UPDATE salary_generates SET amount=0 WHERE month='2023-09' AND user_id=28;]]></console>
     </connection>
   </component>
@@ -26,7 +25,27 @@ UPDATE salary_generates SET amount=0 WHERE month='2023-09' AND user_id=28;]]></c
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="f1ee9367-ee36-46e3-a161-5c98625b5410" object-ref="schemas/u201212290_agilesqa/tables/salary_generates" />
+    </open-files>
+  </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="f1ee9367-ee36-46e3-a161-5c98625b5410" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="f1ee9367-ee36-46e3-a161-5c98625b5410" dataset="u201212290_agilesqa.salaries" active-filter-id="" />
+    <filter-actions connection-id="f1ee9367-ee36-46e3-a161-5c98625b5410" dataset="u201212290_agilesqa.salary_generates" active-filter-id="cff7254a-62a6-4e72-86ed-f3118834ca25">
+      <filter id="cff7254a-62a6-4e72-86ed-f3118834ca25" name="28" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="user_id" operator="=" value="28" active="true" />
+      </filter>
+    </filter-actions>
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.ObjectQuickFilterManager">
+    <last-used-operator value="EQUAL" />
+    <filters />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="a97a3c56-4887-4dc8-a475-9b719b9c3680" />
@@ -43,10 +62,10 @@ UPDATE salary_generates SET amount=0 WHERE month='2023-09' AND user_id=28;]]></c
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="a97a3c56-4887-4dc8-a475-9b719b9c3680" active="true" signed="true">
+      <connection id="f1ee9367-ee36-46e3-a161-5c98625b5410" active="true" signed="true">
         <database>
-          <name value="u201212290_agilesqa" />
-          <description value="" />
+          <name value="Connection" />
+          <description value="agileSwift" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
           <database-version value="5.5" />
@@ -64,7 +83,7 @@ UPDATE salary_generates SET amount=0 WHERE month='2023-09' AND user_id=28;]]></c
           <deprecated-pwd value="eEw5dm5LcVl3fDM=" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />

@@ -231,6 +231,22 @@ public class JDBCMethods {
 
     }
 
+    public static int updateQuery(String query) {
+
+        getStatement();
+        int affectedRows;
+        try {
+            affectedRows = statement.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Etkilenen satir sayisi = " + affectedRows);
+        return affectedRows;
+
+
+    }
+
 }
 
 
