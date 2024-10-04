@@ -45,6 +45,19 @@ UPDATE salary_generates SET amount=0 WHERE month='2023-09' AND user_id=28;]]></c
     <last-used-operator value="EQUAL" />
     <filters />
   </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="a97a3c56-4887-4dc8-a475-9b719b9c3680" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="a97a3c56-4887-4dc8-a475-9b719b9c3680" dataset="u201212290_agilesqa.salary_generates" active-filter-id="" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.ObjectQuickFilterManager">
+    <last-used-operator value="EQUAL" />
+    <filters />
+  </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
       <connection id="f1ee9367-ee36-46e3-a161-5c98625b5410" active="true" signed="true">

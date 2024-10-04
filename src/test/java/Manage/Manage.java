@@ -17,6 +17,7 @@ public class Manage {
 
     private String supports = "UPDATE supports SET priority='highest' WHERE service = 'payment'";
 
+
     private String merchant_statements = "SELECT sum(type) AS total_satis FROM merchant_statements WHERE date BETWEEN '2024-09-13' AND '2024-09-19' GROUP BY date";
 
     private String parcel_logs = "UPDATE parcel_logs SET customer_address = '2379 Wilderman Ridge Suite 207 / Alysahaven' WHERE id = 25";
@@ -27,14 +28,21 @@ public class Manage {
 
 
 
-   // control queries for US25 and US27
+
+
+    // control queries for US25 and US27
+
     private String controlQuery_salary="SELECT amount FROM u201212290_agilesqa.salary_generates WHERE month='2023-09' and user_id=28";
+  
     private String controlQuery_supports="SELECT priority FROM u201212290_agilesqa.supports WHERE service = 'payment'";
 
+    private String hub_id_note = "SELECT hub_id,note FROM u201212290_agilesqa.parcel_logs;";
 
+    private String bank_transaction_amount = "SELECT SUM(amount) AS total_amount FROM u201212290_agilesqa.bank_transactions WHERE DATE(updated_at) BETWEEN '2024-09-09' AND  '2024-09-13';";
 
-
-
+    private String parcel_logs_note = "UPDATE parcel_logs SET note = 'Tebrikler' WHERE hub_id = (SELECT hub_id FROM (SELECT hub_id, COUNT(hub_id) AS toplam_hubs FROM u201212290_agilesqa.parcel_logsGROUP BY hub_id ORDER BY toplam_hubs DESC LIMIT 1) AS subquery);";
+  
+    private String uploads_original = "SELECT SUBSTRING_INDEX(original, '.', -1) AS dosya_uzantisi FROM u201212290_agilesqa.uploads WHERE original IS NOT NULL  AND original LIKE '%.%' AND SUBSTRING_INDEX(original, '.', -1) <> '';";
 
 
 
