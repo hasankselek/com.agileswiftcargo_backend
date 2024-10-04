@@ -45,4 +45,33 @@ public class Manage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    private String delete_delivery_categories = "DELETE FROM u201212290_agilesqa.deliverycategories WHERE id = ?";
+
+
+    private String select_hubs= "SELECT address FROM u201212290_agilesqa.hubs WHERE BINARY name LIKE 'S%'";
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
