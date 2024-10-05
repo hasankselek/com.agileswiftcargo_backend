@@ -13,10 +13,7 @@ import static HelperDB.JDBC_Structure_Methods.resultSet;
 @Getter
 public class Manage {
 
-<<<<<<< HEAD
     public String sozialLinks = "Select id,name,link From  u201212290_agilesqa.social_links Where link Not REGEXP '^(http|https)://.+$';";
-=======
-    public String sozialLinks="Select id,name,link From  u201212290_agilesqa.social_links Where link Not REGEXP '^(http|https)://.+$';";
 
     private String delivery_charges="INSERT INTO u201212290_agilesqa.delivery_charges (category_id, weight, same_day, next_day, sub_city, outside_city, position, status, created_at, updated_at) Values (?,?,?,?,?,?,?,?,Now(),Now());";
 
@@ -65,7 +62,7 @@ public class Manage {
 
 
 
->>>>>>> main
+
 
     private String delivery_charges = "INSERT INTO u201212290_agilesqa.delivery_charges (category_id, weight, same_day, next_day, sub_city, outside_city, position, status, created_at, updated_at) Values (?,?,?,?,?,?,?,?,Now(),Now());";
 
