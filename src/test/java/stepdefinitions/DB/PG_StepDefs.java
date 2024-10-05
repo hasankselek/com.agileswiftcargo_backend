@@ -122,7 +122,7 @@ public class PG_StepDefs extends Manage {
     @When("Verify that URL address of links until entire row with name column compared.")
     public void verify_that_url_address_of_links_until_entire_row_with_name_column_compared() throws SQLException {
 
-        query = getSocialLinks_17();
+        query = getSozialLinks();
 
         Map<String, String> expectedUrls = new HashMap<>();
         expectedUrls.put("facebook", "https://www.facebook.com");

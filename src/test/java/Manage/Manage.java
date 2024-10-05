@@ -33,6 +33,11 @@ public class Manage {
     private String parcels = "ALTER TABLE parcels ADD COLUMN ismi_ali_olanlar INT(1) DEFAULT 0";
 
 
+    private String merchant_online_payment_16 = "UPDATE u201212290_agilesqa.merchant_online_payment_receiveds SET amount=amount-(amount*20/100) WHERE merchant_id = ? ;";
+
+
+    private String merchants_20 = "SELECT * FROM u201212290_agilesqa.merchants WHERE address REGEXP '[1-9]' LIMIT 1;";
+
 
 
 
@@ -68,13 +73,6 @@ public class Manage {
 
     private String delivery_categories = "INSERT INTO u201212290_agilesqa.deliverycategories (title, status, position, created_at, updated_at) VALUES (?,?,?,?,?);";
 
-    private String merchant_online_payment_16 = "UPDATE u201212290_agilesqa.merchant_online_payment_receiveds SET amount=amount-(amount*20/100) WHERE merchant_id = ? ;";
-
-    public String socialLinks_17 = "SELECT name,link FROM  u201212290_agilesqa.social_links;";
-
-    private String merchants_20 = "SELECT * FROM u201212290_agilesqa.merchants WHERE address REGEXP '[1-9]' LIMIT 1;";
-
-
 
 
 
@@ -92,7 +90,6 @@ public class Manage {
 
 
     private String select_hubs= "SELECT address FROM u201212290_agilesqa.hubs WHERE BINARY name LIKE 'S%'";
-
 
 
 
