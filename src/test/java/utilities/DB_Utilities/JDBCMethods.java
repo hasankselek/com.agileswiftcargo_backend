@@ -231,6 +231,37 @@ public class JDBCMethods {
 
     }
 
+    public static int updateQuery(String query) {
+
+        getStatement();
+        int affectedRows;
+        try {
+            affectedRows = statement.executeUpdate(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Etkilenen satir sayisi = " + affectedRows);
+        return affectedRows;
+
+
+    }
+
+    public static void printResultSet(ResultSet resultSet) {
+        try {
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            while (resultSet.next()) {
+                for (int i = 1; i <= columnCount; i++) {
+                    System.out.print(metaData.getColumnName(i) + ": " + resultSet.getString(i) + " ");
+                }
+                System.out.println();
+            }
+        } catch (Exception e) {
+            System.out.println("ResultSet yazdırılırken bir hata oluştu: " + e.getMessage());
+        }
+    }
 }
 
 
