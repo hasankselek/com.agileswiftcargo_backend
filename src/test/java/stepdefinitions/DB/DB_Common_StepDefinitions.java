@@ -545,6 +545,7 @@ public class DB_Common_StepDefinitions extends Manage {
 
     }
 
+
     @When("Verify that {int} row updated to the table")
     public void Verifythatrowupdatedtothetable(int row) {
 

@@ -79,6 +79,7 @@ public class Manage {
 
     //US25
     private String salary_generates="UPDATE salary_generates SET amount=amount + 10000 WHERE month='2023-09' AND amount=0;";
+    private String salary_generates_zero="UPDATE salary_generates SET amount=amount + 0 WHERE month='2023-09' AND amount=0;";
 
     //US26
 
