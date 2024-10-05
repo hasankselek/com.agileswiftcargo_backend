@@ -2,6 +2,7 @@ package stepdefinitions.DB;
 
 import Manage.Manage;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 import static HelperDB.JDBC_Structure_Methods.*;
+import static org.junit.Assert.assertEquals;
 
 public class HK_StepDefs extends Manage {
 
@@ -55,14 +57,18 @@ public class HK_StepDefs extends Manage {
     @Given("Query is sent to find the hub with the most parcel records")
     public void query_is_sent_to_find_the_hub_with_the_most_parcel_records() throws SQLException {
        query = getParcel_logs_note();
-       rowsAffected = statement.executeUpdate(query);
+       preparedStatement = getPraperedStatement(query);
     }
 
-    @Given("The hub with the most parcel logs will have its rating updated to Tebrikler")
-    public void the_hub_with_the_most_parcel_logs_will_have_its_rating_updated_to() throws SQLException {
-
-
-
+    @Then("Verify that {int} added to the parcel table")
+    public void Verify_that_added_to_the_table(int row) {
+        int rowCount = 0;
+        try {
+            rowCount = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        assertEquals(row, rowCount);
     }
 
     /**
@@ -83,6 +89,8 @@ public class HK_StepDefs extends Manage {
         Assert.assertEquals(totalAmount,resultSet.getString("total_amount"));
 
     }
+
+
 
 
 

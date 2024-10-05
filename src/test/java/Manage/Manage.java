@@ -26,7 +26,7 @@ public class Manage {
 
     private String bank_transaction_amount = "SELECT SUM(amount) AS total_amount FROM u201212290_agilesqa.bank_transactions WHERE DATE(updated_at) BETWEEN '2024-09-09' AND  '2024-09-13';";
 
-    private String parcel_logs_note = "UPDATE parcel_logs SET note = 'Tebrikler' WHERE hub_id = (SELECT hub_id FROM (SELECT hub_id, COUNT(hub_id) AS toplam_hubs FROM u201212290_agilesqa.parcel_logsGROUP BY hub_id ORDER BY toplam_hubs DESC LIMIT 1) AS subquery);";
+    private String parcel_logs_note = "UPDATE parcel_logs SET note = 'Tebrikler' WHERE hub_id = (SELECT hub_id FROM (SELECT hub_id, COUNT(hub_id) AS toplam_hubs FROM u201212290_agilesqa.parcel_logs GROUP BY hub_id ORDER BY toplam_hubs DESC LIMIT 1) AS subquery);";
   
     private String uploads_original = "SELECT SUBSTRING_INDEX(original, '.', -1) AS dosya_uzantisi FROM u201212290_agilesqa.uploads WHERE original IS NOT NULL  AND original LIKE '%.%' AND SUBSTRING_INDEX(original, '.', -1) <> '';";
 
