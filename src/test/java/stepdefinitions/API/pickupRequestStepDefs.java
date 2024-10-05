@@ -156,7 +156,7 @@ public class pickupRequestStepDefs extends BaseTest {
 
 
     @Given("The api user prepares a POST request containing {int}, {string} and {int} information to send to the api pickuprequestregular add endpoint.")
-    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_pickuprequestregular_add_endpoint(int merchant_id, String note, Integer parcel_quantity) {
+    public void the_api_user_prepares_a_post_request_containing_and_information_to_send_to_the_api_pickuprequestregular_add_endpoint(int merchant_id, String note, int parcel_quantity) {
         requestBody.put("merchant_id", merchant_id);
         requestBody.put("note", note);
         requestBody.put("parcel_quantity", parcel_quantity);

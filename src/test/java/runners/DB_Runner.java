@@ -8,13 +8,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "pretty",
-                "html:target/default-cucumber-reports.html",
-                "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
+                "html:target/Cucumber-Reports/HTML_Report_DB.html",
+                "json:target/Cucumber-Reports/JSON_Report_DB.json",
+                "junit:target/Cucumber-Reports/XML_Reports_DB.xml",
         },
         features = {"src/test/resources/features/DB"},
         glue = {"stepdefinitions"},
-        tags = "@DB",
+        tags = "@DB_US25",
         dryRun = false
 
 )

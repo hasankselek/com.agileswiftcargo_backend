@@ -5,13 +5,13 @@ Feature:AgileSwiftCargo All Database User Stories
 
     * Database connection established
 
-  @DB_US01
+  @DB_US01 @smoke
   Scenario: [accounts]  Verify that the number of users with gateway = 2 in the accounts table in the database is ?.
 
     * Verify that the number of users with gateway = 2 in the accounts table in the database is 2.
     * Database closed
 
-  @DB_US02
+  @DB_US02 @smoke
   Scenario: [blogs] Verify the most viewed blog name in the blogs table via the database.
 
     * The most viewed name on the blogs page is found
@@ -49,7 +49,7 @@ Feature:AgileSwiftCargo All Database User Stories
     * Database closed
 
 
-  @DB_US07
+  @DB_US07 @smoke
   Scenario: [currencies] Verify the data with 'A' in the code information of the contents with name=Dollars in the currencies table on the database by sorting them in reverse order.
 
     * Query prepared for currency data where name='Dollars'
@@ -57,28 +57,28 @@ Feature:AgileSwiftCargo All Database User Stories
     * Verify that the code 'A' exists in the retrieved data
     * Database closed
 
-  @DB_US08
+  @DB_US08 @smoke
   Scenario: [delivery_charges] Make a data record by entering all data in the delivery_charges table via the database and verify that a new record can be made (status:0)
 
     * insert the new delivery charge into the database ulvi
     * Verify that 1 added to the table
     * Database closed
 
-  @DB_US09
+  @DB_US09 @smoke
   Scenario: [delivery_man] Update the delivery_charge information of deliveryman with id:? in the delivery_man table on the database as ? and verify that it has been updated.
 
     * Update the delivery_charge for deliveryman with id 13 to 333.33
     * Verify that the delivery_charge for deliveryman with id 13 has been updated to 333.33
     * Database closed
 
-  @DB_US10
+  @DB_US10 @smoke
   Scenario: [deliverycategories] Add multiple data to the deliverycategories table via the database (multiple data in a single query) and verify that the new data record can be added.
 
     * Prepare query to insert 2 data entry into the deliverycategories table.
     * Verify bulk 2 data added to the table
     * Database closed
 
-  @DB_US11
+  @DB_US11 @smoke
   Scenario: [deliverycategories] Delete the records with status:0 in the deliverycategories table via database and verify that they are deleted.
 
     * Prepare query with status to insert 1 data entry into the deliverycategories table.
@@ -86,7 +86,7 @@ Feature:AgileSwiftCargo All Database User Stories
     * Delete this id and status to the deliverycategories table
     * Database closed
 
-  @DB_US12
+  @DB_US12 @smoke
   Scenario: [faqs] Verify the Questions values of the 3 oldest uptade data in the faqs table via the database.
             # Database üzerinden faqs tablosundaki en eski uptade işlemi yapılan 3 datanın Questions değerlerini doğrulayınız.
 
@@ -100,14 +100,14 @@ Feature:AgileSwiftCargo All Database User Stories
     *
     * Database closed
 
-  @DB_US14
+  @DB_US14 @smoke
   Scenario: [hubs] Verify the address information of the data whose name information starts with 'S' from the hubs table over the database.
 
     *  Verify the the address information of the data whose name information starts with 'S' from the hubs table.
     *  Verify the "address" information Results are obtained.
     *  Database closed
 
-  @DB_US15
+  @DB_US15 @smoke
   Scenario: [merchant_delivery_charges] Collect the “sub_city” values of those with “merchant_id” value 2 and different “delivery_charge_id” values
   from the merchant_delivery_charges table from the database and list and verify the results for each “delivery_charge_id”.
 
@@ -118,14 +118,14 @@ Feature:AgileSwiftCargo All Database User Stories
     * verify the results for each delivery_charge_id
     * Database closed
 
-  @DB_US16
+  @DB_US16 @smoke
   Scenario: [merchant_online_payment_receiveds] Verify the result by deducting 20% from the amount values of the data with  merchant_id:8 in the merchant_online_payment_received table in the database?
 
     * Prepare query for update the deducting 20 percent from the amount of id 8 in the merchant_online_payment_received table
     * Verify that row of this id affected
     * Database closed
 
-  @DB_US17
+  @DB_US17 @smoke
   Scenario: [social_links] Verify whether the links in the social_links table are the correct links in the database.
 
     * Prepare query for identifying the URL addresses in the social_links table that aren't valid link.
@@ -133,7 +133,7 @@ Feature:AgileSwiftCargo All Database User Stories
     * Verify that URL address of links until entire row with name column compared.
     * Database closed
 
-  @DB_US18
+  @DB_US18 @smoke
   Scenario: [merchant_statements] Verify by grouping the transported parts day by day according to the date in the merchant_statements table through the database.
 
     * Query prepared merchant_statements table
@@ -141,7 +141,7 @@ Feature:AgileSwiftCargo All Database User Stories
     * Validates grouped results
     * Database closed
 
-  @DB_US19
+  @DB_US19 @smoke
   Scenario: [merchant_statements] Verify the address information of the data containing the letters 'm' and 'n' in the data in the business_name column in the merchants table via the database.
             #Database üzerinden merchants tablosundaki business_name sütunundaki verilerden içinde 'm' ve 'n'
             # harflerını ıceren dataların address bilgilerini doğrulayınız
@@ -150,7 +150,7 @@ Feature:AgileSwiftCargo All Database User Stories
     * verify the address information of the data containing the letters m and n
     * Database closed
 
-  @DB_US20
+  @DB_US20 @smoke
   Scenario: [news_offers] Verify which day and by whom the oldest offer information was entered into the news_offers table via the database.
 
     * Prepare query for DELETE the address cell with a numeric expression in the address information
@@ -164,14 +164,14 @@ Feature:AgileSwiftCargo All Database User Stories
     * Database closed
 
 
-  @DB_US22
+  @DB_US22 @smoke
   Scenario: [parcel_logs] In the parcel_logs table on the database, change the customer_address value of the data with customer_name:? (? = any value can be selected) to '2379 Wilderman Ridge Suite 207 / Alysahaven' and verify that the update was successful.
 
     * Query prepared parcel_logs table
     * Address change is made
     * Database closed
 
-  @DB_US23
+  @DB_US23 @smoke
   Scenario: [parcels] A column named 'name_ali_olanlar' should be created in the parcels table through the database and it should be verified that those who have 'ali' in the customer_name are shown with 1 and those who do not have 1 are shown with 0 in the created column.
 
     * The column ismi_ali_olanlar is created
@@ -179,14 +179,14 @@ Feature:AgileSwiftCargo All Database User Stories
     * The information is verified.
     * Database closed
 
-  @DB_US24
+  @DB_US24 @smoke
   Scenario: [partners] Verify the name of our oldest partner in the partners table in the database.
 
     * Query prepared partners table
     * Processes the results of the partners table query
     * Database closed
 
-  @DB_US25
+  @DB_US25 @smoke
   Scenario: [salary_generates] Make 10000 payments to users whose amount value is zero in the salary payments in'2023-09 in the salary_generates table in the database and verify that the payment has been made.
 
     * Query prepared salary_generates table
@@ -200,7 +200,7 @@ Feature:AgileSwiftCargo All Database User Stories
     *
     * Database closed
 
-  @DB_US27
+  @DB_US27 @smoke
   Scenario: [supports] Verify that the transaction is realized by making the priority values of the supports whose service value in the supports table in the database highest.
 
     * Query prepared supports table
@@ -208,21 +208,21 @@ Feature:AgileSwiftCargo All Database User Stories
     * Verify priority is update
     * Database closed
 
-  @DB_US28
+  @DB_US28 @smoke
   Scenario: [uploads] List and verify how many files in different formats are uploaded to the system from the uploads table via the database.
 
     * Query prepared uploads table and original column
     * Verify how many different formats the files under the Original column are in
     * Database closed
 
-  @DB_US29
+  @DB_US29 @smoke
   Scenario: [parcel_logs] Print and verify congratulations to the note column of the parcels connected to the hub with the most parcel records in the parce
 
     * Query is sent to find the hub with the most parcel records
     * Verify that 24 added to the parcel table Hasan
     * Database closed
 
-  @DB_US30
+  @DB_US30 @smoke
   Scenario: [bank_transactions] According to the values in the bank_transactions table on the database, verify the total amount values of the transactions made between 2023-09-27 12:02:32 and 2023-10-02 09:48:31.
 
     * Prepare query for amount calculation between dates

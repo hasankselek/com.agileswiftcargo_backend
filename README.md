@@ -1,4 +1,4 @@
-# AgileSwiftCaargo Backend Testleri için Hazırlanan Proje
+# AgileSwiftCargo Backend Testleri için Hazırlanan Proje
 
 Bu proje, AgileSwiftCargo Backend testleri için hazırlanmıştır. Proje, AgileSwiftCargo web sitesi üzerinde çeşitli backend otomasyon senaryolarını içerir ve Cucumber,RestAssured gibi popüler test otomasyon araçları kullanılarak geliştirilmiştir. Bu proje, API ve SQL test otomasyonu testlerini kapsar.
 
@@ -7,12 +7,12 @@ Bu proje, AgileSwiftCargo Backend testleri için hazırlanmıştır. Proje, Agil
 - **Java 17**: Projenin ana programlama dili.
 - **Maven**: Proje yönetimi ve bağımlılık yönetimi için kullanıldı.
 - **Cucumber**: BDD (Behavior-Driven Development) çerçevesi ile test senaryolarını yazmak için kullanıldı.
-- **JUnit**: Testlerin yürütülmesi ve raporlanması için kullanıldı.
+- **JUnit 5**: Testlerin yürütülmesi ve raporlanması için kullanıldı.
 - **JavaFaker**: Test verilerini dinamik olarak üretmek için kullanıldı.
 - **Jenkins**:GitHub entegre edilerek, her kod değişikliği yapıldığında otomatik olarak bir işlem başlatılabildi, böylece hatalar erken aşamada tespit edilip düzeltildi.
 - **RestAssured**:API testlerini yapmak için kullanıldı
 - **MYSQL**:SQL sorgularını yapmak için kullanıldı.
-- **Allure-Reports**:Test raporu sonuçlarını almak için kullanıldı
+- **Lombok**:Java’da boilerplate kodları (tekrar eden kodlar) azaltmak için kullanıldı.
 
 ## Proje Yapısı
 
@@ -25,16 +25,16 @@ Bu proje, AgileSwiftCargo Backend testleri için hazırlanmıştır. Proje, Agil
 - **`src/test/java/runners`**: API ve DB olmak üzere 2 runner bulundurur.
 - **`src/test/java/stepdefinitions`**: API ve DB testlerinin steplerini bulundurur.
 - **`src/test/java/utilities`**: API ve DB testleri için yazılmış yardımcı methodları bulundurur.
-- **`src/main/resources/config.yaml`**: API ve DB için gerekli olan access bilgilerini bulundurur.
-- **`src/main/resources/features`**: API ve DB test senaryolarını barındırır.
-- **`src/main/resources/testData`**: API testleri için gerekli olan access bilgilerini excel formatında bulundurur.
+- **`src/test/resources/config.yaml`**: API ve DB için gerekli olan access bilgilerini bulundurur.
+- **`src/test/resources/features`**: API ve DB test senaryolarını barındırır.
+- **`src/test/resources/testData`**: API testleri için gerekli olan access bilgilerini excel formatında bulundurur.
 - **`pom.xml`**: Projede kullanılan tüm bağımlılıkları yöneten Maven yapılandırma dosyası.
 
 ## Raporlama
 
-- **Allure-Reports:** Test sonuçları, Cucumber tarafından oluşturulan HTML raporları ile ayriyeten "Allure Reports" ile daha ayrıntılı olarak incelenebilir.
+- **Cucumber-Reports:** Test sonuçları, Cucumber tarafından oluşturulan HTML raporları ile ayriyeten "Cucumber Reports" ile daha ayrıntılı olarak incelenebilir.
          
-- Bu raporlar, testlerin detaylı bir şekilde incelenmesini sağlar ve `Allure-Reports` dizininde HTML,JSON,XML formatında saklanır.
+- Bu raporlar, testlerin detaylı bir şekilde incelenmesini sağlar ve `Cucumber-HTML-Reports` dizininde HTML,JSON,XML formatında saklanır.
 
 ## Kurulum ve Çalıştırma
 
@@ -52,7 +52,7 @@ Bu proje, AgileSwiftCargo Backend testleri için hazırlanmıştır. Proje, Agil
 
 - **API Test Senaryoları**: Blog, deliveryman, hub, merchant, merchatshop, packaging, parcel, pickuprequest, support sayfalarının API sorguları yapılmıştır.
 - **DB Test Senaryoları**: Toplam 30 adet SQL sorgusu yapılarak gerekli doğrulamalar yapıldı.
-- 
+
 ## Notlar
 
 - Bu proje, AgileSwiftCargo Backend testleri için hazırlanmıştır.

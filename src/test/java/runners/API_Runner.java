@@ -8,14 +8,14 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "pretty",
-                "html:target/default-cucumber-reports.html",
-                "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
+                "html:target/Cucumber-Reports/HTML_Report_API.html",
+                "json:target/Cucumber-Reports/JSON_Report_API.json",
+                "junit:target/Cucumber-Reports/XML_Reports_API.xml",
                 
         },
         features = {"src/test/resources/features/API"},
         glue = {"stepdefinitions", "hooks", "utilities"},
-        tags = "@a",
+        //tags = "@E2E",
         dryRun = false
 
 )

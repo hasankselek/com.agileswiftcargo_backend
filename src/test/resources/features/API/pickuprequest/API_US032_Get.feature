@@ -7,12 +7,12 @@ Feature:As an administrator (admin), I want to be able to access the detailed in
     * The api user sets "api/merchantrequest/<merchant_id>" path parameters.
     * The api user sends a "GET" request and saves the returned response.
     * The api user verifies that the status code is 200.
-    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including <id>, "<request_type>", <merchant_id>, "<adress>", "<note>", <parcel_quantity>, "<name>", "<phone>", "<cod_amount>", "<invoive>", <weight>, <exchange>, "<created_at>" and "<updated_at>".
+    * The api user verifies that the data in the response body includes <id>, "<request_type>", <merchant_id>, "<adress>", "<note>", <parcel_quantity>, "<name>", "<phone>", "<cod_amount>", "<invoive>", <weight>, <exchange>, "<created_at>" and "<updated_at>".
 
 
     Examples:
-      | dataindex | id  | request_type | merchant_id | adress | note               | parcel_quantity | name            | phone        | cod_amount | invoive | weight | exchange | created_at                  | updated_at                  |
-      | 2         | 120 | 2            | 464         | Boston | Hızlı ve Güvenilir | 0               | HasanKucukselek | 123123123123 | 5.00       | PENDING | 5      | 1        | 2024-09-26T12:41:31.000000Z | 2024-09-29T10:32:53.000000Z |
+      | id  | request_type | merchant_id | adress | note               | parcel_quantity | name            | phone        | cod_amount | invoive | weight | exchange | created_at                  | updated_at                  |
+      | 120 | 2            | 464         | Boston | Hızlı ve Güvenilir | 0               | HasanKucukselek | 123123123123 | 5.00       | PENDING | 5      | 1        | 2024-09-26T12:41:31.000000Z | 2024-09-29T10:32:53.000000Z |
 
 
   Scenario: admin Send a GET request to the api/merchantrequest/{id} endpoint without an id and with valid authorization, verify that the
