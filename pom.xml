@@ -83,6 +83,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.32</version>
         </dependency>
+
         <!-- Allure JUnit 5 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
