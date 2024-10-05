@@ -5,7 +5,7 @@ Feature:As an administrator (admin) I want to be able to access the entire expre
     * The api user sets "api/pickuprequest/express" path parameters.
     * The api user sends a "GET" request and saves the returned response.
     * The api user verifies that the status code is 200.
-    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including <id>, "<request_type>", <merchant_id>, "<adress>", "<note>", <parcel_quantity>, "<name>", "<phone>", "<cod_amount>", "<invoive>", <weight>, <exchange>, "<created_at>" and "<updated_at>".
+    * The api user verifies the information in the response body for the entry with the specified <dataindex> index, including <id>, "<request_type>", <merchant_id>, "<adress>", "<note>", <parcel_quantity>, "<name>", "<phone>", "<cod_amount>", "<invoive>", <exchange>, "<created_at>" and "<updated_at>".
 
     Examples:
       | dataindex | id  | request_type | merchant_id | adress | note               | parcel_quantity | name            | phone        | cod_amount | invoive | weight | exchange | created_at                  | updated_at                  |
