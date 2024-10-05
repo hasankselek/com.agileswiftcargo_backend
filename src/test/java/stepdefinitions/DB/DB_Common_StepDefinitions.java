@@ -68,8 +68,8 @@ public class DB_Common_StepDefinitions extends Manage {
      * US08
      **/
 
-    @When("I insert the new delivery charge into the database")
-    public void i_insert_the_new_delivery_charge_into_the_database() throws SQLException {
+    @When("insert the new delivery charge into the database")
+    public void insert_the_new_delivery_charge_into_the_database() throws SQLException {
         query = getDelivery_charges();
         preparedStatement = getPraperedStatement(query);
         /**category_id, weight, same_day, next_day, sub_city, outside_city, position, status (should be 0)*/
