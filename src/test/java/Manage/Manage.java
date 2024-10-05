@@ -74,24 +74,19 @@ public class Manage {
 
     private String merchants_20 = "SELECT * FROM u201212290_agilesqa.merchants WHERE address REGEXP '[1-9]' LIMIT 1;";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private String delete_delivery_categories = "DELETE FROM u201212290_agilesqa.deliverycategories WHERE id = ?";
 
-
     private String select_hubs= "SELECT address FROM u201212290_agilesqa.hubs WHERE BINARY name LIKE 'S%'";
+  
+    // Eklenen yeni sorgular
+    public String currencyDataByNameAndCodeContainsA = "SELECT * FROM currencies WHERE name=? AND code LIKE ? ORDER BY code DESC";
+
+    // Delivery charge güncelleme sorgusu
+    public String updateDeliveryChargeQuery = "UPDATE delivery_man SET delivery_charge = ? WHERE id = ?";
+
+    // Delivery charge doğrulama sorgusu
+    public String selectDeliveryChargeQuery = "SELECT delivery_charge FROM delivery_man WHERE id = ?";
+
 
 
 
