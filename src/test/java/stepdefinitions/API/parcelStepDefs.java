@@ -205,7 +205,5 @@ public class parcelStepDefs extends BaseTest {
                 .buildUsingMap();
 
         System.out.println("POST Request Body : " + requestBody);
-
-
     }
 }
